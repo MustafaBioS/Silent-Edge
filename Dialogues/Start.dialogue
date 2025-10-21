@@ -1,13 +1,22 @@
 ~ start
 set State.in_dialogue = true
+
+if State.rang == true:
+	Phone: The unknown number is calling again...
+else:
+	Phone: An unknown number is calling...
+- Answer
+	Unknown Number: Listen carefully, You don't know me... but you will very soon.
+	Unknown Number: There’s a green car waiting for you at the end of the road.
+	Unknown Number: It'll bring you to me so we can talk, it's urgent.
+	Unknown Number: Refuse, and I'll send someone to bring you.
+	set State.finished_dialogue = true
+	set State.in_dialogue = false
+	=> END
+- Decline
+	set State.rang = true
+	=> start
+
 set State.finished_dialogue = true
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+set State.in_dialogue = false
 => END
