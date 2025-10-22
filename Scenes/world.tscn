@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://x6h7yfg1wujh" path="res://Dialogues/Start.dialogue" id="7_o06y3"]
 [ext_resource type="Script" uid="uid://bkc1wxprawo8m" path="res://Scripts/car.gd" id="8_k7acu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8j60k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7acu"]
 texture = ExtResource("1_go701")
 0:0/0 = 0
 1:0/0 = 0
@@ -593,7 +593,7 @@ texture = ExtResource("1_go701")
 18:25/0 = 0
 19:25/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5ed"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5v1tr"]
 texture = ExtResource("2_5a7ea")
 0:0/0 = 0
 1:0/0 = 0
@@ -661,7 +661,7 @@ texture = ExtResource("2_5a7ea")
 1:14/0 = 0
 2:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06y3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fj1v"]
 texture = ExtResource("3_fo5ed")
 separation = Vector2i(1, 1)
 0:0/0 = 0
@@ -1845,7 +1845,7 @@ separation = Vector2i(1, 1)
 37:28/0 = 0
 38:28/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7acu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikia7"]
 texture = ExtResource("4_5ukr8")
 2:2/0 = 0
 3:2/0 = 0
@@ -2449,10 +2449,10 @@ texture = ExtResource("4_5ukr8")
 
 [sub_resource type="TileSet" id="TileSet_5ukr8"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_8j60k")
-sources/1 = SubResource("TileSetAtlasSource_fo5ed")
-sources/2 = SubResource("TileSetAtlasSource_o06y3")
-sources/3 = SubResource("TileSetAtlasSource_k7acu")
+sources/0 = SubResource("TileSetAtlasSource_k7acu")
+sources/1 = SubResource("TileSetAtlasSource_5v1tr")
+sources/2 = SubResource("TileSetAtlasSource_0fj1v")
+sources/3 = SubResource("TileSetAtlasSource_ikia7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo5ed"]
 size = Vector2(20, 65)
