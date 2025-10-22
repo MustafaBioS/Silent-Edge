@@ -1,0 +1,19 @@
+~ start
+set State.in_dialogue = true
+
+Phone: The unknown number is calling again...
+- Answer
+	Unknown Number: You arrived?.
+	Unknown Number: Good. Three crates ahead, the one in the center holds my blade. You’ll need it for
+	Unknown Number: Don’t look for me. I had business elsewhere. Finish this quietly. Leave no echoes.
+	Unknown Number: Once you get the blade, Get in the car to go to the target's location.
+	set State.finished_sec_dialogue = true
+	set State.in_dialogue = false
+	=> END
+- Decline
+	set State.rang = true
+	=> start
+
+set State.finished_sec_dialogue = true
+set State.in_dialogue = false
+=> END

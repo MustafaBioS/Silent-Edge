@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c0nfgwugvnneg"]
+[gd_scene load_steps=30 format=3 uid="uid://c0nfgwugvnneg"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_xi0mm"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_bu6dc"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://ceahtepip0d84" path="res://Scripts/housedoor.gd" id="8_gau5j"]
 [ext_resource type="Script" uid="uid://c340uudml86m6" path="res://Scenes/player.gd" id="9_lmwq5"]
 [ext_resource type="Texture2D" uid="uid://bv8komkml06e8" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/SpriteSheet.png" id="10_x4svt"]
+[ext_resource type="Script" uid="uid://ctsx7nxkacqfi" path="res://Scripts/housebox.gd" id="11_x4svt"]
+[ext_resource type="Resource" uid="uid://c6sye5toengw1" path="res://Dialogues/House.dialogue" id="12_ttg8n"]
+[ext_resource type="Resource" uid="uid://bdehy7m3mw66n" path="res://Dialogues/Aquired.dialogue" id="13_0h1dt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmwq5"]
 texture = ExtResource("1_xi0mm")
@@ -3734,6 +3737,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
 size = Vector2(10, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmwq5"]
+size = Vector2(104, 53)
+
 [node name="House" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -3751,6 +3757,7 @@ layer_4/tile_data = PackedInt32Array(-131080, 5, 9, -65544, 5, 10, -8, 5, 11, -6
 
 [node name="Door" type="Area2D" parent="."]
 script = ExtResource("8_gau5j")
+dialogue_resource = ExtResource("12_ttg8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(16, 69.5)
@@ -3773,3 +3780,16 @@ shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
 zoom = Vector2(5, 5)
+
+[node name="Crates" type="Area2D" parent="."]
+script = ExtResource("11_x4svt")
+dialogue_resource = ExtResource("13_0h1dt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates"]
+position = Vector2(16, -100.5)
+shape = SubResource("RectangleShape2D_lmwq5")
+
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
+[connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Crates" to="Crates" method="_on_body_entered"]
+[connection signal="body_exited" from="Crates" to="Crates" method="_on_body_exited"]

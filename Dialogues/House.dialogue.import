@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c6sye5toengw1"
+path="res://.godot/imported/House.dialogue-288dc82d9cdc04d5ca7846f607237327.tres"
+
+[deps]
+
+source_file="res://Dialogues/House.dialogue"
+dest_files=["res://.godot/imported/House.dialogue-288dc82d9cdc04d5ca7846f607237327.tres"]
+
+[params]
+
+defaults=true

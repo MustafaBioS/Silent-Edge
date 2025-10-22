@@ -1,0 +1,7 @@
+~ start
+set State.in_dialogue = true
+Crate: You have found a blade.
+
+set State.finished_aq = true
+set State.in_dialogue = false
+=> END

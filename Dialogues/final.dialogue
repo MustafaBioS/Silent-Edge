@@ -1,0 +1,20 @@
+~ start
+set State.in_dialogue = true
+
+Phone: The unknown number is calling again...
+- Answer
+	Unknown Number: Wow, You actually did it, You Assassinated Him... Good job.
+	Unknown Number: We have wired 1 Million Dollars to your bank account.
+	Unknown Number: Nice work.
+	set State.finished_final = true
+	set State.in_dialogue = false
+	set State.gameover = true
+	=> END
+- Decline
+	set State.rang = true
+	=> start
+	
+set State.finished_final = true
+set State.in_dialogue = false
+set State.gameover = true
+=> END
