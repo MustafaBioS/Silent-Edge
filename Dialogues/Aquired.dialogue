@@ -1,6 +1,6 @@
 ~ start
 set State.in_dialogue = true
-Crate: You have found a blade.
+Crate: You have found a blade, Press "I" To View Your Inventory.
 
 set State.finished_aq = true
 set State.in_dialogue = false

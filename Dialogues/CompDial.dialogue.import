@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dur0tx1k27apq"
+path="res://.godot/imported/CompDial.dialogue-74a86125f70218d2c43b3040bf310271.tres"
+
+[deps]
+
+source_file="res://Dialogues/CompDial.dialogue"
+dest_files=["res://.godot/imported/CompDial.dialogue-74a86125f70218d2c43b3040bf310271.tres"]
+
+[params]
+
+defaults=true

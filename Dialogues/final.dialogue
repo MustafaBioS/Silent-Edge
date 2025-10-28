@@ -8,7 +8,6 @@ Phone: The unknown number is calling again...
 	Unknown Number: Nice work.
 	set State.finished_final = true
 	set State.in_dialogue = false
-	set State.gameover = true
 	=> END
 - Decline
 	set State.rang = true
@@ -16,5 +15,4 @@ Phone: The unknown number is calling again...
 	
 set State.finished_final = true
 set State.in_dialogue = false
-set State.gameover = true
 => END

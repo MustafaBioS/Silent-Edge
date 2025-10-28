@@ -3218,10 +3218,10 @@ sources/4 = SubResource("TileSetAtlasSource_exdlw")
 size = Vector2(20, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qisi2"]
-size = Vector2(20, 28)
+size = Vector2(29, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7h5g"]
-size = Vector2(70, 44)
+size = Vector2(87, 45)
 
 [node name="Boss House" type="Node2D"]
 
@@ -3260,15 +3260,17 @@ shape = SubResource("RectangleShape2D_fd0ox")
 script = ExtResource("7_ldqp7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(96, -352)
+position = Vector2(96.5, -346.5)
 shape = SubResource("RectangleShape2D_qisi2")
 
 [node name="Car" type="Area2D" parent="."]
 script = ExtResource("8_fy5f6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
-position = Vector2(24, -251)
+position = Vector2(22.5, -250.5)
 shape = SubResource("RectangleShape2D_n7h5g")
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]
+[connection signal="body_entered" from="Car" to="Car" method="_on_body_entered"]
+[connection signal="body_exited" from="Car" to="Car" method="_on_body_exited"]

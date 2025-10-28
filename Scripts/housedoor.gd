@@ -15,6 +15,9 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/boss_house.tscn")
 
 func _on_body_entered(body: Node2D) -> void:
+	if not body.has_method("player"):
+		return
+
 	if body.has_method("player"):
 		entered = true
 		

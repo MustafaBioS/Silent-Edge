@@ -5,16 +5,27 @@ extends Area2D
 var entered = false
 const Balloon = preload("uid://cgduucytreo0u")
 @onready var target = $"../Target"
+@onready var enemy = $"../Enemy"
+
+func _ready() -> void:
+	enemy.visible = false
 
 func _process(delta: float) -> void:
 	if entered and Input.is_action_just_pressed("interact"):
 		target.queue_free()
 		action()
+		_cutscene()
 		
 	if State.gameover == true:
 		await get_tree().create_timer(1.0).timeout
+		State.played = true
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
+func _cutscene():
+	enemy.visible = true
+	var tween = create_tween()
+	tween.tween_property(enemy, "position", Vector2(25, enemy.position.y), 3)
+	await tween.finished
 
 func action() -> void:
 	if State.finished_final == false:

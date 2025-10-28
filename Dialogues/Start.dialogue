@@ -8,8 +8,9 @@ else:
 - Answer
 	Unknown Number: Listen carefully, You don't know me... but you will very soon.
 	Unknown Number: There’s a green car waiting for you at the end of the road.
-	Unknown Number: It'll bring you to me so we can talk, it's urgent.
-	Unknown Number: Refuse, and I'll send someone to bring you.
+	Unknown Number: It'll bring you to me so you can get a blade from my house.
+	Unknown Number: You are obligated to take care of someone who betrayed me.
+	Unknown Number: Refuse, and I'll send someone to bring you both.
 	set State.finished_dialogue = true
 	set State.in_dialogue = false
 	=> END

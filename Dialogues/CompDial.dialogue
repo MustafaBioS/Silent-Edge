@@ -1,0 +1,14 @@
+~ start
+set State.in_dialogue = true
+
+Phone: An unknown number is calling...
+- Answer
+	Unknown Number: The target should be in front of you.
+	Unknown Number: He's currently on the phone, Get him while he's distracted.
+	set State.finished_compdial = true
+	set State.in_dialogue = false
+	=> END
+
+set State.finished_compdial = true
+set State.in_dialogue = false
+=> END

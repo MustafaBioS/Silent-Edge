@@ -7,3 +7,6 @@ var finished_aq = false
 var finished_final = false
 var rang = false
 var gameover = false
+var house = false
+var played = false
+var finished_compdial = false
