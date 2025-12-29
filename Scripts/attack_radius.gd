@@ -23,9 +23,13 @@ func _process(delta: float) -> void:
 
 func _cutscene():
 	enemy.visible = true
-	var tween = create_tween()
-	tween.tween_property(enemy, "position", Vector2(25, enemy.position.y), 3)
-	await tween.finished
+	if State.finished_final == true:
+		State.in_dialogue = true
+		await get_tree().create_timer(0.5).timeout
+		var tween = create_tween()
+		tween.tween_property(enemy, "position", Vector2(25, enemy.position.y), 3)
+		await tween.finished
+		State.in_dialogue = false
 
 func action() -> void:
 	if State.finished_final == false:
@@ -34,7 +38,15 @@ func action() -> void:
 		balloon.start(dialogue_resource, dialogue_start)
 
 func _on_body_entered(body: Node2D) -> void:
-	entered = true
-
+	if body.has_method("player"):
+		entered = true
+		
+	if not body.has_method("player"):
+		return
+		
 func _on_body_exited(body: Node2D) -> void:
-	entered = false
+	if body.has_method("player"):
+		entered = false
+		
+	if not body.has_method("player"):
+		return

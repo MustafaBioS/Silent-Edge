@@ -9,9 +9,6 @@ Phone: The unknown number is calling again...
 	set State.finished_final = true
 	set State.in_dialogue = false
 	=> END
-- Decline
-	set State.rang = true
-	=> start
 	
 set State.finished_final = true
 set State.in_dialogue = false

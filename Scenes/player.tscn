@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bph8w2xfb5m41"]
 
 [ext_resource type="Texture2D" uid="uid://bv8komkml06e8" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/SpriteSheet.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c340uudml86m6" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://c340uudml86m6" path="res://Scripts/player.gd" id="1_cvnsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_4flbx")

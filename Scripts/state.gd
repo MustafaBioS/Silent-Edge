@@ -10,3 +10,4 @@ var gameover = false
 var house = false
 var played = false
 var finished_compdial = false
+var paused = false

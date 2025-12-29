@@ -4075,14 +4075,16 @@ shape = SubResource("RectangleShape2D_tqmcd")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(-51, -230)
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 sprite_frames = SubResource("SpriteFrames_woflx")
 animation = &"walk"
-frame_progress = 0.78567195
+frame_progress = 0.06243796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(0, -1)
+position = Vector2(0, 1)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_uq5n3")
 
 [connection signal="body_entered" from="AttackRadius" to="AttackRadius" method="_on_body_entered"]
