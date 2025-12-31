@@ -6,6 +6,7 @@ extends Control
 @onready var clicksfx = $ClickSFX
 @onready var audio = $Options/Audio
 @onready var screen = $Options/Screen
+@onready var anim = $AnimationPlayer
 
 func _process(delta: float) -> void:
 	if State.played == true and play.text != "Play Again":
@@ -13,9 +14,13 @@ func _process(delta: float) -> void:
 		
 func _ready() -> void:
 	options.visible = false
+	anim.play("fade_in")
+	await anim.animation_finished
 
 func _on_play_pressed() -> void:
 	clicksfx.play()
+	anim.play("fade_out")
+	await anim.animation_finished
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 
 func _on_options_pressed() -> void:

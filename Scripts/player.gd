@@ -3,8 +3,9 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var pause = $"../../Pause"
 @onready var inv = $"../../Inventory"
-@onready var click_sfx = $"../../ClickSFX"
-@onready var back_sfx = $"../../BackSFX"
+@onready var clicksfx = $"../../ClickSFX"
+@onready var backsfx = $"../../BackSFX"
+@onready var anim = $"../../Animation/AnimationPlayer"
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -15,6 +16,8 @@ func player():
 func _ready() -> void:
 	pause.visible = false
 	inv.visible = false
+	anim.play("fade_in")
+	await anim.animation_finished
 
 func _physics_process(delta: float) -> void:
 	
