@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bkeilmechp6rd"]
+[gd_scene load_steps=44 format=3 uid="uid://bkeilmechp6rd"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_5a7ea"]
@@ -10,6 +10,10 @@
 [ext_resource type="Script" uid="uid://bkc1wxprawo8m" path="res://Scripts/car.gd" id="8_k7acu"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="9_0fj1v"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="9_5v1tr"]
+[ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="11_ikia7"]
+[ext_resource type="AudioStream" uid="uid://gpq4hb8cus3t" path="res://Music/jazz-lounge-relaxing-background-music-412597.mp3" id="12_e0ngr"]
+[ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="13_kn0ld"]
+[ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="14_hgpy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7acu"]
 texture = ExtResource("1_go701")
@@ -2516,6 +2520,37 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq1aw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0ngr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn0ld"]
+bg_color = Color(0.03137255, 0.6862745, 0.8509804, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgpy0"]
+bg_color = Color(0.60583925, 0.8929469, 0.99921507, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pyn1s"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_no8kt"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xbk3s"]
+color = Color(0.029668372, 0.6872171, 0.851646, 1)
+thickness = 6
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2703,6 +2738,246 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1cojt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yq1aw")
 text = "<-"
 
+[node name="AudioBtn" type="Button" parent="Pause/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -118.0
+offset_right = -10.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("9_5v1tr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0ngr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kn0ld")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hgpy0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pyn1s")
+text = "Audio"
+
+[node name="ScreenBtn" type="Button" parent="Pause/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -118.0
+offset_right = 122.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("9_5v1tr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0ngr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kn0ld")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hgpy0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pyn1s")
+text = "Screen"
+
+[node name="Audio" type="Control" parent="Pause/Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MasterLB" type="Label" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 266.0
+offset_top = 191.0
+offset_right = 421.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5v1tr")
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 154.625
+offset_top = 219.0
+offset_right = 532.375
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_no8kt")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_xbk3s")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_xbk3s")
+value = 50.0
+
+[node name="MusicLB" type="Label" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 278.5
+offset_top = 274.0
+offset_right = 412.5
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5v1tr")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 154.625
+offset_top = 302.0
+offset_right = 532.375
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_no8kt")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_xbk3s")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_xbk3s")
+value = 50.0
+
+[node name="SFXLB" type="Label" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 230.5
+offset_top = 362.0
+offset_right = 460.5
+offset_bottom = 386.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5v1tr")
+text = "Sound Effects Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Pause/Options/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 154.625
+offset_top = 390.0
+offset_right = 532.375
+offset_bottom = 426.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_no8kt")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_xbk3s")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_xbk3s")
+value = 50.0
+
+[node name="Screen" type="Control" parent="Pause/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Pause/Options/Screen"]
+layout_mode = 0
+offset_left = 326.5
+offset_top = 248.0
+offset_right = 386.5
+offset_bottom = 271.0
+text = "SCREEN"
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+script = ExtResource("11_ikia7")
+
+[node name="Background" type="ColorRect" parent="Inventory"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.875
+offset_top = -292.5
+offset_right = 189.875
+offset_bottom = 292.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="Inventory/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 45.5
+offset_right = 145.0
+offset_bottom = 113.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_5v1tr")
+theme_override_font_sizes/font_size = 46
+text = "Inventory"
+
+[node name="Items" type="Label" parent="Inventory/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -22.5
+offset_right = 141.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_5v1tr")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_e0ngr")
+volume_db = -11.0
+autoplay = true
+bus = &"Music"
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_kn0ld")
+bus = &"SFX"
+
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_hgpy0")
+bus = &"SFX"
+
 [connection signal="body_entered" from="Green Car" to="Green Car" method="_on_body_entered"]
 [connection signal="body_exited" from="Green Car" to="Green Car" method="_on_body_exited"]
 [connection signal="pressed" from="Pause/Buttons/Resume" to="Pause" method="_on_resume_pressed"]
@@ -2710,3 +2985,5 @@ text = "<-"
 [connection signal="pressed" from="Pause/Buttons/Menu" to="Pause" method="_on_menu_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Exit" to="Pause" method="_on_exit_pressed"]
 [connection signal="pressed" from="Pause/Options/Back" to="Pause" method="_on_back_pressed"]
+[connection signal="pressed" from="Pause/Options/AudioBtn" to="Pause" method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="Pause/Options/ScreenBtn" to="Pause" method="_on_screen_btn_pressed"]

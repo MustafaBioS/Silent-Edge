@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b4173ranj7c0s"]
+[gd_scene load_steps=54 format=3 uid="uid://b4173ranj7c0s"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_nqeq3"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_i68yw"]
@@ -12,7 +12,12 @@
 [ext_resource type="Resource" uid="uid://c5ahd037wr434" path="res://Dialogues/Final.dialogue" id="10_tqmcd"]
 [ext_resource type="Script" uid="uid://dbpwtbsovwwkg" path="res://Scripts/compdial.gd" id="11_0esng"]
 [ext_resource type="Resource" uid="uid://dur0tx1k27apq" path="res://Dialogues/CompDial.dialogue" id="12_yhq1y"]
-[ext_resource type="Texture2D" uid="uid://bq88ipqyosrso" path="res://Assets/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier.png" id="13_x8erm"]
+[ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="14_v143s"]
+[ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="15_jtk4h"]
+[ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="16_jtk4h"]
+[ext_resource type="AudioStream" uid="uid://gpq4hb8cus3t" path="res://Music/jazz-lounge-relaxing-background-music-412597.mp3" id="16_xbvg7"]
+[ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="17_depx2"]
+[ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="18_tv2pp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtk4h"]
 texture = ExtResource("1_nqeq3")
@@ -3962,72 +3967,56 @@ size = Vector2(53, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqmcd"]
 size = Vector2(55, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4a64"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(0, 100, 100, 100)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7nf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v143s"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(100, 100, 100, 100)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbvg7"]
+bg_color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jtk4h"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(200, 100, 100, 100)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_depx2"]
+bg_color = Color(0.641934, 0.641934, 0.641934, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fv7nf"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(300, 100, 100, 100)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tv2pp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbvg7"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(400, 100, 100, 100)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdb40"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_depx2"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(500, 100, 100, 100)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woflx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tv2pp"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(600, 100, 100, 100)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uq5n3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdb40"]
-atlas = ExtResource("13_x8erm")
-region = Rect2(700, 100, 100, 100)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igywd"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_woflx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q4a64")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v143s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jtk4h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fv7nf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xbvg7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_depx2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tv2pp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xdb40")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4v1sw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uq5n3"]
-radius = 7.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4lsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7ujr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7f3jw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok5nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrt0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wijvy"]
 
 [node name="Incompany" type="Node2D"]
 
@@ -4073,20 +4062,219 @@ dialogue_resource = ExtResource("12_yhq1y")
 position = Vector2(56.5, -193.5)
 shape = SubResource("RectangleShape2D_tqmcd")
 
-[node name="Enemy" type="CharacterBody2D" parent="."]
-position = Vector2(-51, -230)
-collision_layer = 2
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 1086
+script = ExtResource("14_v143s")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
-sprite_frames = SubResource("SpriteFrames_woflx")
-animation = &"walk"
-frame_progress = 0.06243796
+[node name="Overlay" type="Panel" parent="Pause"]
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(0, 1)
-scale = Vector2(0.6, 0.6)
-shape = SubResource("CircleShape2D_uq5n3")
+[node name="Title" type="Label" parent="Pause"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.0
+offset_top = 68.0
+offset_right = 143.0
+offset_bottom = 165.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.82132065, 0.7156154, 0.42601377, 1)
+theme_override_fonts/font = ExtResource("15_jtk4h")
+theme_override_font_sizes/font_size = 65
+text = "Paused"
+
+[node name="Buttons" type="VBoxContainer" parent="Pause"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -109.0
+offset_right = 108.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="Pause/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_fv7nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbvg7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_depx2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tv2pp")
+text = "Resume"
+
+[node name="Options" type="Button" parent="Pause/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_fv7nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbvg7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_depx2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tv2pp")
+text = "Options"
+
+[node name="Menu" type="Button" parent="Pause/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_fv7nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbvg7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_depx2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tv2pp")
+text = "Main Menu"
+
+[node name="Exit" type="Button" parent="Pause/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_fv7nf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbvg7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_depx2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tv2pp")
+text = "Exit"
+
+[node name="Options" type="ColorRect" parent="Pause"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.5
+offset_top = -251.0
+offset_right = 363.5
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="Pause/Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.5
+offset_top = 36.0
+offset_right = 135.5
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("15_jtk4h")
+theme_override_font_sizes/font_size = 56
+text = "Options"
+
+[node name="Back" type="Button" parent="Pause/Options"]
+layout_mode = 0
+offset_left = 51.5
+offset_top = 36.0
+offset_right = 132.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("15_jtk4h")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xdb40")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_woflx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uq5n3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_igywd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4v1sw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_a4lsl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e7ujr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7f3jw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ok5nq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rrt0a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wijvy")
+text = "<-"
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+script = ExtResource("16_jtk4h")
+
+[node name="Background" type="ColorRect" parent="Inventory"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.875
+offset_top = -292.5
+offset_right = 189.875
+offset_bottom = 292.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="Inventory/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_top = 45.5
+offset_right = 145.0
+offset_bottom = 113.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("15_jtk4h")
+theme_override_font_sizes/font_size = 46
+text = "Inventory"
+
+[node name="Items" type="Label" parent="Inventory/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -22.5
+offset_right = 141.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_jtk4h")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_xbvg7")
+volume_db = -11.0
+autoplay = true
+bus = &"Music"
+
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_depx2")
+bus = &"SFX"
+
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_tv2pp")
+bus = &"SFX"
 
 [connection signal="body_entered" from="AttackRadius" to="AttackRadius" method="_on_body_entered"]
 [connection signal="body_exited" from="AttackRadius" to="AttackRadius" method="_on_body_exited"]
 [connection signal="body_entered" from="CompDial" to="CompDial" method="_on_body_entered"]
+[connection signal="pressed" from="Pause/Buttons/Resume" to="Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Options" to="Pause" method="_on_options_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Menu" to="Pause" method="_on_menu_pressed"]
+[connection signal="pressed" from="Pause/Buttons/Exit" to="Pause" method="_on_exit_pressed"]
+[connection signal="pressed" from="Pause/Options/Back" to="Pause" method="_on_back_pressed"]
