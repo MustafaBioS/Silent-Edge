@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://blgodgt4hcbqp"]
+
+[ext_resource type="AudioStream" uid="uid://gpq4hb8cus3t" path="res://Music/jazz-lounge-relaxing-background-music-412597.mp3" id="1_sjcup"]
+
+[node name="BGMusic" type="Node2D"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_sjcup")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
