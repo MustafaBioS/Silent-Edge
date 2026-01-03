@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bkeilmechp6rd"]
+[gd_scene load_steps=49 format=3 uid="uid://bkeilmechp6rd"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_5a7ea"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bkc1wxprawo8m" path="res://Scripts/car.gd" id="8_k7acu"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="9_0fj1v"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="9_5v1tr"]
+[ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="11_e0ngr"]
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="11_ikia7"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="13_kn0ld"]
 [ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="14_hgpy0"]
@@ -2550,6 +2551,8 @@ thickness = 6
 color = Color(0.029668372, 0.6872171, 0.851646, 1)
 thickness = 6
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_no8kt"]
+
 [sub_resource type="Animation" id="Animation_wbdvm"]
 length = 0.001
 tracks/0/type = "value"
@@ -2953,23 +2956,30 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_xbk3s")
 value = 50.0
 
 [node name="Screen" type="Control" parent="Pause/Options"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -727.0
-offset_bottom = -502.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="Pause/Options/Screen"]
-layout_mode = 0
-offset_left = 326.5
-offset_top = 248.0
-offset_right = 386.5
-offset_bottom = 271.0
-text = "SCREEN"
+[node name="Fullscreen" type="CheckButton" parent="Pause/Options/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.75
+offset_top = -36.5
+offset_right = 206.75
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_no8kt")
+text = "Fullscreen"
+script = ExtResource("11_e0ngr")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
 script = ExtResource("11_ikia7")
@@ -3054,3 +3064,4 @@ bus = &"SFX"
 [connection signal="pressed" from="Pause/Options/Back" to="Pause" method="_on_back_pressed"]
 [connection signal="pressed" from="Pause/Options/AudioBtn" to="Pause" method="_on_audio_btn_pressed"]
 [connection signal="pressed" from="Pause/Options/ScreenBtn" to="Pause" method="_on_screen_btn_pressed"]
+[connection signal="toggled" from="Pause/Options/Screen/Fullscreen" to="Pause/Options/Screen/Fullscreen" method="_on_toggled"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://b05dlvsx5pqcd"]
+[gd_scene load_steps=35 format=3 uid="uid://b05dlvsx5pqcd"]
 
 [ext_resource type="Texture2D" uid="uid://diem40rxf31e" path="res://Assets/image (1).png" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://cld6u2sj2es08" path="res://Scripts/menu.gd" id="1_cayip"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="2_xhh6f"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="4_wbdvm"]
+[ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="5_wbdvm"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="5_wwsa2"]
 [ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="6_jsrd8"]
 
@@ -91,6 +92,8 @@ thickness = 6
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wwsa2"]
 color = Color(0.029668372, 0.6872171, 0.851646, 1)
 thickness = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmwmt"]
 
 [sub_resource type="Animation" id="Animation_wbdvm"]
 length = 0.001
@@ -346,6 +349,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
 text = "Screen"
 
 [node name="Audio" type="Control" parent="Options"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -465,18 +469,32 @@ script = ExtResource("4_wbdvm")
 audio_bus_name = "SFX"
 
 [node name="Screen" type="Control" parent="Options"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="Options/Screen"]
-layout_mode = 0
-offset_left = 326.5
-offset_top = 248.0
-offset_right = 386.5
-offset_bottom = 271.0
-text = "SCREEN"
+[node name="Fullscreen" type="CheckButton" parent="Options/Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.75
+offset_top = -36.5
+offset_right = 206.75
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kmwmt")
+text = "Fullscreen"
+script = ExtResource("5_wbdvm")
 
 [node name="Black" type="ColorRect" parent="."]
 visible = false
@@ -511,3 +529,4 @@ bus = &"SFX"
 [connection signal="value_changed" from="Options/Audio/MasterSlider" to="Options/Audio/MasterSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Audio/MusicSlider" to="Options/Audio/MusicSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Audio/SFXSlider" to="Options/Audio/SFXSlider" method="_on_value_changed"]
+[connection signal="toggled" from="Options/Screen/Fullscreen" to="Options/Screen/Fullscreen" method="_on_toggled"]
