@@ -10,13 +10,15 @@ func _process(delta: float) -> void:
 		action()
 
 func action() -> void:
-	if State.finished_aq == false:
+	if State.finished_aq == false and enteredCrate == true:
 		var balloon: Node = Balloon.instantiate()
 		get_tree().current_scene.add_child(balloon)
 		balloon.start(dialogue_resource, dialogue_start)
 
 func _on_body_entered(body: Node2D) -> void:
-	enteredCrate = true
+	if body.has_method("player"):
+		enteredCrate = true
 
 func _on_body_exited(body: Node2D) -> void:
-	enteredCrate = false
+	if body.has_method("player"):
+		enteredCrate = false

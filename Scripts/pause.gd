@@ -1,11 +1,12 @@
 extends CanvasLayer
 @onready var options = $Options
 @onready var pause = $"."
-@onready var audio = $Options/Audio
-@onready var screen = $Options/Screen
 @onready var clicksfx = $"../ClickSFX"
 @onready var backsfx = $"../BackSFX"
 @onready var anim = $"../Animation/AnimationPlayer"
+
+@onready var audio = $Options/Audio
+@onready var screen = $Options/Screen
 
 func _ready() -> void:
 	options.visible = false

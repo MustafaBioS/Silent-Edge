@@ -11,4 +11,4 @@ var house = false
 var played = false
 var finished_compdial = false
 var paused = false
-var item = "No Items Availabe"
+var item = "No Items Available"

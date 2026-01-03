@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b4173ranj7c0s"]
+[gd_scene load_steps=66 format=3 uid="uid://b4173ranj7c0s"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_nqeq3"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_i68yw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dbpwtbsovwwkg" path="res://Scripts/compdial.gd" id="11_0esng"]
 [ext_resource type="Resource" uid="uid://dur0tx1k27apq" path="res://Dialogues/CompDial.dialogue" id="12_yhq1y"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="14_v143s"]
+[ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="15_depx2"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="15_jtk4h"]
 [ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="15_xbvg7"]
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="16_jtk4h"]
@@ -3996,6 +3997,10 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woflx"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tv2pp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdb40"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uq5n3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igywd"]
@@ -4014,42 +4019,38 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wijvy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_en782"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4078d"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k288t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en782"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72nvm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4078d"]
 bg_color = Color(0.03137255, 0.6862745, 0.8509804, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6pva"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k288t"]
 bg_color = Color(0.60583925, 0.8929469, 0.99921507, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehdmw"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72nvm"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_v0m1k"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_i6pva"]
 color = Color(1, 1, 1, 1)
 thickness = 6
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_glwvw"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ehdmw"]
 color = Color(0.029668372, 0.6872171, 0.851646, 1)
 thickness = 6
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kygnq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v0m1k"]
 
 [sub_resource type="Animation" id="Animation_wbdvm"]
 length = 0.001
@@ -4281,17 +4282,17 @@ offset_right = 132.0
 offset_bottom = 110.0
 theme_override_fonts/font = ExtResource("15_jtk4h")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_uq5n3")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_igywd")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_4v1sw")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a4lsl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_e7ujr")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_7f3jw")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ok5nq")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rrt0a")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wijvy")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_en782")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4078d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tv2pp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_xdb40")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uq5n3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_igywd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4v1sw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_a4lsl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e7ujr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7f3jw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ok5nq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_rrt0a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wijvy")
 text = "<-"
 
 [node name="AudioBtn" type="Button" parent="Pause/Options"]
@@ -4315,10 +4316,10 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 theme_override_fonts/font = ExtResource("15_jtk4h")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_k288t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_72nvm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_i6pva")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ehdmw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_en782")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4078d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k288t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_72nvm")
 text = "Audio"
 
 [node name="ScreenBtn" type="Button" parent="Pause/Options"]
@@ -4342,10 +4343,10 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 theme_override_fonts/font = ExtResource("15_jtk4h")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_k288t")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_72nvm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_i6pva")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ehdmw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_en782")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4078d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k288t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_72nvm")
 text = "Screen"
 
 [node name="Audio" type="Control" parent="Pause/Options"]
@@ -4382,10 +4383,14 @@ offset_right = 532.375
 offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_v0m1k")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_glwvw")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_glwvw")
-value = 50.0
+theme_override_styles/slider = SubResource("StyleBoxLine_i6pva")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ehdmw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ehdmw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("15_depx2")
+audio_bus_name = "Master"
 
 [node name="MusicLB" type="Label" parent="Pause/Options/Audio"]
 layout_mode = 1
@@ -4416,10 +4421,14 @@ offset_right = 532.375
 offset_bottom = 338.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_v0m1k")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_glwvw")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_glwvw")
-value = 50.0
+theme_override_styles/slider = SubResource("StyleBoxLine_i6pva")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ehdmw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ehdmw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("15_depx2")
+audio_bus_name = "Music"
 
 [node name="SFXLB" type="Label" parent="Pause/Options/Audio"]
 layout_mode = 1
@@ -4450,16 +4459,22 @@ offset_right = 532.375
 offset_bottom = 426.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_v0m1k")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_glwvw")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_glwvw")
-value = 50.0
+theme_override_styles/slider = SubResource("StyleBoxLine_i6pva")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ehdmw")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ehdmw")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("15_depx2")
+audio_bus_name = "SFX"
 
 [node name="Screen" type="Control" parent="Pause/Options"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -4477,7 +4492,7 @@ offset_right = 206.75
 offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kygnq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v0m1k")
 text = "Fullscreen"
 script = ExtResource("15_xbvg7")
 
@@ -4565,4 +4580,7 @@ bus = &"SFX"
 [connection signal="pressed" from="Pause/Options/Back" to="Pause" method="_on_back_pressed"]
 [connection signal="pressed" from="Pause/Options/AudioBtn" to="Pause" method="_on_audio_btn_pressed"]
 [connection signal="pressed" from="Pause/Options/ScreenBtn" to="Pause" method="_on_screen_btn_pressed"]
+[connection signal="value_changed" from="Pause/Options/Audio/MasterSlider" to="Pause/Options/Audio/MasterSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Pause/Options/Audio/MusicSlider" to="Pause/Options/Audio/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Pause/Options/Audio/SFXSlider" to="Pause/Options/Audio/SFXSlider" method="_on_value_changed"]
 [connection signal="toggled" from="Pause/Options/Screen/Fullscreen" to="Pause/Options/Screen/Fullscreen" method="_on_toggled"]
