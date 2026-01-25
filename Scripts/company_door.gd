@@ -1,5 +1,9 @@
 extends Area2D
 var entered = false
+@onready var popup = $"../DoorPopup"
+
+func _ready() -> void:
+	popup.visible = false
 
 func _process(delta: float) -> void:
 	if entered and Input.is_action_just_pressed("interact"):
@@ -7,8 +11,10 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		popup.visible = true
 		entered = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
+		popup.visible = false
 		entered = false

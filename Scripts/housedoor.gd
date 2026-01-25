@@ -3,6 +3,10 @@ var entered = false
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 const Balloon = preload("uid://cgduucytreo0u")
+@onready var popup = $"../DoorPopup"
+
+func _ready() -> void:
+	popup.visible = false
 
 func action() -> void:
 	if State.finished_sec_dialogue == false:
@@ -19,6 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if body.has_method("player"):
+		popup.visible = true
 		entered = true
 		
 	if State.finished_sec_dialogue == false:
@@ -28,4 +33,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
+		popup.visible = false
 		entered = false

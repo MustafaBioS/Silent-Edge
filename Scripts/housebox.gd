@@ -4,6 +4,10 @@ extends Area2D
 @export var dialogue_start: String = "start"
 var enteredCrate = false
 const Balloon = preload("uid://bg4mirjxc0wv7")
+@onready var popup = $"../CratePopup"
+
+func _ready() -> void:
+	popup.visible = false
 
 func _process(delta: float) -> void:
 	if enteredCrate and Input.is_action_just_pressed("interact"):
@@ -17,8 +21,10 @@ func action() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
+		popup.visible = true
 		enteredCrate = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
+		popup.visible = false
 		enteredCrate = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b6mirp7nu5y1u"]
+[gd_scene load_steps=50 format=3 uid="uid://b6mirp7nu5y1u"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_v4ven"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_08al8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b47mfu8whqyu6" path="res://Assets/CP_V1.1.0_nyknck/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="4_sc5v1"]
 [ext_resource type="PackedScene" uid="uid://bph8w2xfb5m41" path="res://Scenes/player.tscn" id="6_5jvo4"]
 [ext_resource type="Script" uid="uid://dj1mpc6vwjrhb" path="res://Scripts/company_door.gd" id="6_v4ven"]
+[ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="7_765pc"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="7_xrvgj"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="8_sc5v1"]
 [ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="9_45jbh"]
@@ -2491,6 +2492,13 @@ size = Vector2(18, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ven"]
 size = Vector2(23, 30)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8idew"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1os3"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -2679,6 +2687,19 @@ script = ExtResource("6_v4ven")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CompanyDoor"]
 position = Vector2(9, -320)
 shape = SubResource("RectangleShape2D_v4ven")
+
+[node name="DoorPopup" type="Label" parent="."]
+offset_left = -13.0
+offset_top = -346.0
+offset_right = 129.49998
+offset_bottom = -309.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("7_765pc")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_8idew")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2

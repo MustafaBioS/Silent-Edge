@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c0nfgwugvnneg"]
+[gd_scene load_steps=65 format=3 uid="uid://c0nfgwugvnneg"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_xi0mm"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_bu6dc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ctsx7nxkacqfi" path="res://Scripts/housebox.gd" id="11_x4svt"]
 [ext_resource type="Resource" uid="uid://c6sye5toengw1" path="res://Dialogues/House.dialogue" id="12_ttg8n"]
 [ext_resource type="Resource" uid="uid://bdehy7m3mw66n" path="res://Dialogues/Aquired.dialogue" id="13_0h1dt"]
+[ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="14_78jbw"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="14_j14gn"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="15_tj63m"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="16_36e0i"]
@@ -3747,6 +3748,13 @@ size = Vector2(10, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmwq5"]
 size = Vector2(104, 53)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx658"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36e0i"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -3910,7 +3918,7 @@ shape = SubResource("RectangleShape2D_l3jqw")
 
 [node name="Player" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(16, 45)
+position = Vector2(16, 37)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
 script = ExtResource("9_lmwq5")
@@ -3935,8 +3943,35 @@ dialogue_resource = ExtResource("13_0h1dt")
 position = Vector2(2, 6)
 shape = SubResource("RectangleShape2D_lmwq5")
 
+[node name="DoorPopup" type="Label" parent="."]
+offset_left = -4.0
+offset_top = 52.0
+offset_right = 138.49998
+offset_bottom = 89.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("14_78jbw")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cx658")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CratePopup" type="Label" parent="."]
+offset_left = -4.0
+offset_top = -138.0
+offset_right = 138.49998
+offset_bottom = -101.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("14_78jbw")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_cx658")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("14_j14gn")
 
 [node name="Overlay" type="Panel" parent="Pause"]
@@ -4332,6 +4367,7 @@ vertical_alignment = 1
 
 [node name="Animation" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="Black" type="ColorRect" parent="Animation"]
 anchors_preset = 15

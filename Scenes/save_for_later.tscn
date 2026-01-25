@@ -1,0 +1,132 @@
+[gd_scene load_steps=21 format=3 uid="uid://bvxj7meschuvn"]
+
+[ext_resource type="Texture2D" uid="uid://c5d30pd3xhp7j" path="res://Assets/Modern tiles_Free/Characters_free/Adam_phone_16x16.png" id="1_cfoo7"]
+[ext_resource type="Script" uid="uid://ryndtaugq30u" path="res://Scripts/attack_radius.gd" id="2_u2dtc"]
+[ext_resource type="Resource" uid="uid://c5ahd037wr434" path="res://Dialogues/Final.dialogue" id="3_1itmu"]
+[ext_resource type="Script" uid="uid://dbpwtbsovwwkg" path="res://Scripts/compdial.gd" id="4_fon1l"]
+[ext_resource type="Resource" uid="uid://dur0tx1k27apq" path="res://Dialogues/CompDial.dialogue" id="5_vht8n"]
+[ext_resource type="Texture2D" uid="uid://dj6sdmrckf4xl" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaMageBlack/SpriteSheet.png" id="6_1itmu"]
+[ext_resource type="Texture2D" uid="uid://cet45iufomlir" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaMageBlack/Faceset.png" id="7_fon1l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq5n3"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igywd"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v1sw"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4lsl"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7ujr"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f3jw"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok5nq"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrt0a"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wijvy"]
+atlas = ExtResource("1_cfoo7")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de4vh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq5n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igywd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v1sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4lsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7ujr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f3jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok5nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrt0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wijvy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hyli"]
+size = Vector2(15, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey0ym"]
+size = Vector2(53, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jevf7"]
+size = Vector2(55, 35)
+
+[node name="Save For Later" type="Node2D"]
+
+[node name="Target" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Target"]
+position = Vector2(57, -274)
+sprite_frames = SubResource("SpriteFrames_de4vh")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+position = Vector2(57.5, -269.5)
+shape = SubResource("RectangleShape2D_0hyli")
+
+[node name="AttackRadius" type="Area2D" parent="."]
+script = ExtResource("2_u2dtc")
+dialogue_resource = ExtResource("3_1itmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRadius"]
+position = Vector2(58.5, -262.5)
+shape = SubResource("RectangleShape2D_ey0ym")
+
+[node name="CompDial" type="Area2D" parent="."]
+script = ExtResource("4_fon1l")
+dialogue_resource = ExtResource("5_vht8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompDial"]
+position = Vector2(56.5, -193.5)
+shape = SubResource("RectangleShape2D_jevf7")
+
+[node name="MysteriousMan" type="Node2D" parent="."]
+
+[node name="SpriteSheet" type="Sprite2D" parent="MysteriousMan"]
+position = Vector2(107, 247)
+texture = ExtResource("6_1itmu")
+
+[node name="Faceset" type="Sprite2D" parent="MysteriousMan"]
+position = Vector2(202, 238)
+texture = ExtResource("7_fon1l")
+
+[connection signal="body_entered" from="AttackRadius" to="AttackRadius" method="_on_body_entered"]
+[connection signal="body_exited" from="AttackRadius" to="AttackRadius" method="_on_body_exited"]
+[connection signal="body_entered" from="CompDial" to="CompDial" method="_on_body_entered"]

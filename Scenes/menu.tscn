@@ -40,28 +40,6 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwsa2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_158mb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsrd8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbdvm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3rjx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6swd7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qvly"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqti"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8i7c"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23t3j"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ph6h"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ti5v"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwsa2"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
@@ -84,6 +62,28 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1by5w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_158mb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsrd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbdvm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3rjx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6swd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qvly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfqti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8i7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23t3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ph6h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ti5v"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_158mb"]
 color = Color(1, 1, 1, 1)
@@ -273,6 +273,70 @@ theme_override_fonts/font = ExtResource("2_xhh6f")
 theme_override_font_sizes/font_size = 56
 text = "Options"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.75
+offset_top = 125.0
+offset_right = 205.75
+offset_bottom = 173.0
+grow_horizontal = 2
+theme_override_constants/separation = 12
+
+[node name="AudioBtn" type="Button" parent="Options/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
+text = "Audio"
+
+[node name="ScreenBtn" type="Button" parent="Options/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
+text = "Screen"
+
+[node name="Keybinds" type="Button" parent="Options/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_fonts/font = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
+text = "Keybinds
+"
+
 [node name="Back" type="Button" parent="Options"]
 layout_mode = 0
 offset_left = 51.5
@@ -293,60 +357,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_23t3j")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8ph6h")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5ti5v")
 text = "<-"
-
-[node name="AudioBtn" type="Button" parent="Options"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -133.0
-offset_top = -118.0
-offset_right = -10.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-theme_override_fonts/font = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
-text = "Audio"
-
-[node name="ScreenBtn" type="Button" parent="Options"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -118.0
-offset_right = 122.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-theme_override_fonts/font = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
-text = "Screen"
 
 [node name="Audio" type="Control" parent="Options"]
 anchors_preset = 0
@@ -495,6 +505,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kmwmt")
 text = "Fullscreen"
 script = ExtResource("5_wbdvm")
 
+[node name="Keybinds" type="Control" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Black" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -521,9 +539,10 @@ bus = &"SFX"
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/ScreenBtn" to="." method="_on_screen_btn_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer/Keybinds" to="." method="_on_screen_btn_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Options/AudioBtn" to="." method="_on_audio_btn_pressed"]
-[connection signal="pressed" from="Options/ScreenBtn" to="." method="_on_screen_btn_pressed"]
 [connection signal="value_changed" from="Options/Audio/MasterSlider" to="Options/Audio/MasterSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Audio/MusicSlider" to="Options/Audio/MusicSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Audio/SFXSlider" to="Options/Audio/SFXSlider" method="_on_value_changed"]

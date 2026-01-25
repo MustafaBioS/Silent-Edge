@@ -1,11 +1,11 @@
 ~ start
 set State.in_dialogue = true
 
-Phone: The unknown number is calling again...
+Phone: Boss is calling again...
 - Answer
-	Unknown Number: Wow, You actually did it, You Assassinated Him... Good job.
-	Unknown Number: We have wired 1 Million Dollars to your bank account.
-	Unknown Number: Nice work.
+	Boss: Wow, You actually did it, You Assassinated Him... Good job.
+	Boss: We have wired 1 Million Dollars to your bank account.
+	Boss: Nice work.
 	set State.finished_final = true
 	set State.in_dialogue = false
 	=> END

@@ -12,3 +12,6 @@ var played = false
 var finished_compdial = false
 var paused = false
 var item = "No Items Available"
+var finished_rec_dialogue = false
+var killRec = false
+var lost = false

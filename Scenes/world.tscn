@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bkeilmechp6rd"]
+[gd_scene load_steps=52 format=3 uid="uid://bkeilmechp6rd"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_go701"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_5a7ea"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b47mfu8whqyu6" path="res://Assets/CP_V1.1.0_nyknck/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="4_5ukr8"]
 [ext_resource type="PackedScene" uid="uid://xckiv86602rj" path="res://Scenes/actionable.tscn" id="6_5ukr8"]
 [ext_resource type="Resource" uid="uid://x6h7yfg1wujh" path="res://Dialogues/Start.dialogue" id="7_o06y3"]
+[ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="8_hgpy0"]
 [ext_resource type="Script" uid="uid://bkc1wxprawo8m" path="res://Scripts/car.gd" id="8_k7acu"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="9_0fj1v"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="9_5v1tr"]
@@ -2470,6 +2471,13 @@ size = Vector2(60, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7acu"]
 size = Vector2(47, 41)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2t4p"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fj1v"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -2647,6 +2655,19 @@ script = ExtResource("8_k7acu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Green Car"]
 position = Vector2(22.5, -204.5)
 shape = SubResource("RectangleShape2D_k7acu")
+
+[node name="Popup" type="Label" parent="."]
+offset_left = 1.0
+offset_top = -223.0
+offset_right = 143.49998
+offset_bottom = -186.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("8_hgpy0")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_t2t4p")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("3_5a7ea")]
 
