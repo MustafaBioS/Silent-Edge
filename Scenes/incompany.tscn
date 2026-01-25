@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b4173ranj7c0s"]
+[gd_scene load_steps=66 format=3 uid="uid://b4173ranj7c0s"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_nqeq3"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_i68yw"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://ba3p0yxr3bk6t" path="res://Assets/free-office-pixel-art/Julia-Idle.png" id="7_v143s"]
 [ext_resource type="Script" uid="uid://ceq6n5i075abh" path="res://Scripts/reception.gd" id="8_jtk4h"]
 [ext_resource type="Resource" uid="uid://c46jk1su3sow2" path="res://Dialogues/Reception.dialogue" id="9_fv7nf"]
+[ext_resource type="Script" uid="uid://bi2qkrgw5tcjl" path="res://Scripts/reception_kill.gd" id="10_tv2pp"]
+[ext_resource type="Script" uid="uid://dolsldwbhyfis" path="res://Scripts/elevator.gd" id="11_xbvg7"]
+[ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="12_depx2"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="14_v143s"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="15_depx2"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="15_jtk4h"]
@@ -17,8 +20,9 @@
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="16_jtk4h"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="17_depx2"]
 [ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="18_tv2pp"]
+[ext_resource type="AudioStream" uid="uid://b85ttbpt4dyax" path="res://Music/HitSFX.mp3" id="21_xdb40"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtk4h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdb40"]
 texture = ExtResource("1_nqeq3")
 0:0/0 = 0
 1:0/0 = 0
@@ -602,7 +606,7 @@ texture = ExtResource("1_nqeq3")
 18:25/0 = 0
 19:25/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fv7nf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_woflx"]
 texture = ExtResource("2_i68yw")
 0:0/0 = 0
 1:0/0 = 0
@@ -670,7 +674,7 @@ texture = ExtResource("2_i68yw")
 1:14/0 = 0
 2:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbvg7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uq5n3"]
 texture = ExtResource("3_tqmcd")
 separation = Vector2i(1, 1)
 0:0/0 = 0
@@ -1859,7 +1863,7 @@ separation = Vector2i(1, 1)
 37:28/0 = 0
 38:28/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_depx2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igywd"]
 texture = ExtResource("4_0esng")
 2:2/0 = 0
 3:2/0 = 0
@@ -2479,7 +2483,7 @@ texture = ExtResource("4_0esng")
 7:56/0 = 0
 9:56/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tv2pp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4v1sw"]
 texture = ExtResource("5_yhq1y")
 3:0/0 = 0
 4:0/0 = 0
@@ -2744,7 +2748,7 @@ texture = ExtResource("5_yhq1y")
 8:20/0 = 0
 9:20/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdb40"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4lsl"]
 texture = ExtResource("6_x8erm")
 1:0/0 = 0
 2:0/0 = 0
@@ -3879,12 +3883,12 @@ texture = ExtResource("6_x8erm")
 
 [sub_resource type="TileSet" id="TileSet_woflx"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jtk4h")
-sources/1 = SubResource("TileSetAtlasSource_fv7nf")
-sources/2 = SubResource("TileSetAtlasSource_xbvg7")
-sources/3 = SubResource("TileSetAtlasSource_depx2")
-sources/4 = SubResource("TileSetAtlasSource_tv2pp")
-sources/5 = SubResource("TileSetAtlasSource_xdb40")
+sources/0 = SubResource("TileSetAtlasSource_xdb40")
+sources/1 = SubResource("TileSetAtlasSource_woflx")
+sources/2 = SubResource("TileSetAtlasSource_uq5n3")
+sources/3 = SubResource("TileSetAtlasSource_igywd")
+sources/4 = SubResource("TileSetAtlasSource_4v1sw")
+sources/5 = SubResource("TileSetAtlasSource_a4lsl")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtk4h"]
 atlas = ExtResource("7_v143s")
@@ -3926,7 +3930,23 @@ animations = [{
 size = Vector2(12, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v143s"]
-size = Vector2(50, 30)
+size = Vector2(61, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_depx2"]
+size = Vector2(50, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv7nf"]
+size = Vector2(74, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbvg7"]
+size = Vector2(21, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woflx"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_depx2"]
 bg_color = Color(1, 1, 1, 1)
@@ -4045,7 +4065,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_q3rjx"]
 resource_name = "fade_out"
-length = 0.5
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -4053,7 +4073,7 @@ tracks/0/path = NodePath("Black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -4091,7 +4111,7 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(54, -292)
 sprite_frames = SubResource("SpriteFrames_tv2pp")
 animation = &"Idle"
-frame_progress = 0.3759264
+frame_progress = 0.43057466
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Librarian"]
 position = Vector2(54, -290)
@@ -4102,11 +4122,59 @@ script = ExtResource("8_jtk4h")
 dialogue_resource = ExtResource("9_fv7nf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reception"]
-position = Vector2(56, -280)
+position = Vector2(57.5, -274)
 shape = SubResource("RectangleShape2D_v143s")
 
+[node name="ReceptionKill" type="Area2D" parent="."]
+script = ExtResource("10_tv2pp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReceptionKill"]
+position = Vector2(58, -294.5)
+shape = SubResource("RectangleShape2D_depx2")
+
 [node name="Player" parent="." instance=ExtResource("7_q4a64")]
+z_index = 3
 position = Vector2(56, -192)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(54, -277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_fv7nf")
+
+[node name="Elevator" type="Area2D" parent="."]
+script = ExtResource("11_xbvg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(-15.5, -291)
+shape = SubResource("RectangleShape2D_xbvg7")
+
+[node name="ElevatorPopup" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -321.0
+offset_right = 105.499985
+offset_bottom = -284.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("12_depx2")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_woflx")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReceptionPopup" type="Label" parent="."]
+offset_left = 37.0
+offset_top = -316.0
+offset_right = 179.49998
+offset_bottom = -279.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("12_depx2")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_woflx")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
@@ -4520,6 +4588,41 @@ libraries = {
 &"": SubResource("AnimationLibrary_q3rjx")
 }
 
+[node name="LoseAnim" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Black" type="ColorRect" parent="LoseAnim"]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="LoseAnim/Black"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -34.5
+offset_right = 343.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.16666651, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "The Cops Have Caught You..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoseAnim"]
+libraries = {
+&"": SubResource("AnimationLibrary_q3rjx")
+}
+
 [node name="ClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_depx2")
 bus = &"SFX"
@@ -4528,6 +4631,16 @@ bus = &"SFX"
 stream = ExtResource("18_tv2pp")
 bus = &"SFX"
 
+[node name="KillSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_xdb40")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Reception" to="Reception" method="_on_body_entered"]
+[connection signal="body_exited" from="Reception" to="Reception" method="_on_body_exited"]
+[connection signal="body_entered" from="ReceptionKill" to="ReceptionKill" method="_on_body_entered"]
+[connection signal="body_exited" from="ReceptionKill" to="ReceptionKill" method="_on_body_exited"]
+[connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
+[connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
 [connection signal="pressed" from="Pause/Buttons/Resume" to="Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Options" to="Pause" method="_on_options_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Menu" to="Pause" method="_on_menu_pressed"]

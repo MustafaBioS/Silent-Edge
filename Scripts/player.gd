@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var clicksfx = $"../../ClickSFX"
 @onready var backsfx = $"../../BackSFX"
 @onready var anim = $"../../Animation/AnimationPlayer"
+@onready var inventory = $"../../Inventory"
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -23,9 +24,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("inv") and State.in_dialogue == false:
 		if inv.visible:
-			backsfx.play()
-			inv.visible = false
-		elif !inv.visible:
+			if pause.visible:
+				inv.visible = false
+			else:
+				inv.visible = false
+				backsfx.play()
+
+		elif !inv.visible && !pause.visible:
 			clicksfx.play()
 			inv.visible = true
 	
@@ -40,10 +45,12 @@ func _physics_process(delta: float) -> void:
 				backsfx.play()
 				pause.visible = false
 				State.paused = false
+				inventory.visible = false
 			elif pause.visible == false:
 				clicksfx.play()
 				pause.visible = true
 				State.paused = true
+				inventory.visible = false
 	
 	var input_vector = Vector2.ZERO
 	

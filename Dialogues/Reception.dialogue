@@ -8,6 +8,7 @@ Receptionist: Hello, How may i help you?
 		Receptionist: Appointment for Mr. Milton, Take the elevator to the 6(7)th floor Sir.
 		set State.finished_rec_dialogue = true
 		set State.in_dialogue = false
+		set State.elevator_route = true
 	- Sam
 		Receptionist: I don't see any appointments with the name Sam, Please make an appointment then come back.
 		set State.finished_rec_dialogue = true
@@ -18,7 +19,8 @@ Receptionist: Hello, How may i help you?
 	Receptionist: Hold on Sir...
 	Receptionist: Mr. Floyd didn't order pest control, I have alerted the police.
 	set State.lost = true
-	=> start
+	set State.in_dialogue = false
+	=> END
 
 set State.finished_rec_dialogue = true
 set State.in_dialogue = false

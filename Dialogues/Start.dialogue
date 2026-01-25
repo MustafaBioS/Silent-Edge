@@ -3,7 +3,7 @@ set State.in_dialogue = true
 
 if State.rang == true:
 	Phone: Boss is calling again...
-else:e
+else
 	Phone: Boss is calling...
 - Answer
 	Boss: Listen carefully, Milton.
