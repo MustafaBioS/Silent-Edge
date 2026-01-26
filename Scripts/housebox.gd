@@ -12,6 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if enteredCrate and Input.is_action_just_pressed("interact"):
 		action()
+		State.opened_crate = true
 
 func action() -> void:
 	if State.finished_aq == false and enteredCrate == true:

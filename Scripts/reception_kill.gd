@@ -3,9 +3,6 @@ var entered = false
 @onready var librarian = $"../Librarian"
 @onready var killSFX = $"../KillSFX"
 @onready var popup = $"../ReceptionPopup"
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 func _process(delta: float) -> void:
 	

@@ -4,11 +4,13 @@ extends Area2D
 @export var dialogue_start: String = "start"
 const Balloon = preload("uid://cecfjcr47dwns")
 @onready var popup = $"../ReceptionPopup"
+@onready var door_popup = $"../DoorPopup"
 
 @onready var anim = $"../LoseAnim/AnimationPlayer"
 @onready var lose_anim = $"../LoseAnim"
 
 var entered = false
+var entered_door = false
 var restarting = false
 
 func _ready() -> void:
@@ -47,3 +49,13 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		popup.visible = false
 		entered = false
+
+func _on_door_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		door_popup.visbile = true
+		entered_door = true
+
+func _on_door_body_exited(body: Node2D) -> void:
+	if body.has_method('player'):
+		door_popup.visible = false
+		entered_door = false

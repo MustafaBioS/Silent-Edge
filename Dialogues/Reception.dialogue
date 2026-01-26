@@ -9,7 +9,7 @@ Receptionist: Hello, How may i help you?
 		set State.finished_rec_dialogue = true
 		set State.in_dialogue = false
 		set State.elevator_route = true
-	- Sam
+	- Err... Sam
 		Receptionist: I don't see any appointments with the name Sam, Please make an appointment then come back.
 		set State.finished_rec_dialogue = true
 		set State.killRec = true

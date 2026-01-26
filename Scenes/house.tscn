@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c0nfgwugvnneg"]
+[gd_scene load_steps=68 format=3 uid="uid://c0nfgwugvnneg"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_xi0mm"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_bu6dc"]
@@ -21,6 +21,9 @@
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="16_tj63m"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="18_36e0i"]
 [ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="19_78jbw"]
+[ext_resource type="Texture2D" uid="uid://3xfebcsdsfic" path="res://Assets/Self Made/duffel.png" id="22_cx658"]
+[ext_resource type="Texture2D" uid="uid://cmdyg5hf44dx" path="res://Assets/Self Made/money.png" id="23_g3br3"]
+[ext_resource type="PackedScene" uid="uid://s83wauuhcrmv" path="res://Scenes/boss.tscn" id="24_g3br3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmwq5"]
 texture = ExtResource("1_xi0mm")
@@ -3704,7 +3707,7 @@ sources/5 = SubResource("TileSetAtlasSource_7ug6d")
 sources/6 = SubResource("TileSetAtlasSource_j14gn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3jqw"]
-size = Vector2(34, 47)
+size = Vector2(34, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("10_x4svt")
@@ -3913,7 +3916,7 @@ script = ExtResource("8_gau5j")
 dialogue_resource = ExtResource("12_ttg8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(16, 69.5)
+position = Vector2(16, 61)
 shape = SubResource("RectangleShape2D_l3jqw")
 
 [node name="Player" type="Node2D" parent="."]
@@ -3944,10 +3947,10 @@ position = Vector2(2, 6)
 shape = SubResource("RectangleShape2D_lmwq5")
 
 [node name="DoorPopup" type="Label" parent="."]
-offset_left = -4.0
-offset_top = 52.0
-offset_right = 138.49998
-offset_bottom = 89.0
+offset_left = -5.0
+offset_top = 59.0
+offset_right = 137.49998
+offset_bottom = 96.0
 scale = Vector2(0.3, 0.3)
 theme_override_fonts/font = ExtResource("14_78jbw")
 theme_override_font_sizes/font_size = 16
@@ -4390,6 +4393,52 @@ bus = &"SFX"
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_78jbw")
 bus = &"SFX"
+
+[node name="SecondVisit" type="Node2D" parent="."]
+
+[node name="Duffel" type="Sprite2D" parent="SecondVisit"]
+z_index = 1
+position = Vector2(16, 8.781971)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("22_cx658")
+
+[node name="Money" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(19, 15.781969)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Money2" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(20, 11.781971)
+rotation = -0.24946873
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Money3" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(18.000002, 6.781971)
+rotation = -0.24946873
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Money4" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(19.000002, 10.781971)
+rotation = -0.24946873
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Money5" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(12, 14.781971)
+rotation = -0.24946873
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Money6" type="Sprite2D" parent="SecondVisit"]
+position = Vector2(12.000001, 11.781971)
+rotation = -0.24946873
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_g3br3")
+
+[node name="Boss" parent="SecondVisit" instance=ExtResource("24_g3br3")]
+position = Vector2(16, -13)
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_body_exited"]

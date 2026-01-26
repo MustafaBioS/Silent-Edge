@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b4173ranj7c0s"]
+[gd_scene load_steps=74 format=3 uid="uid://b4173ranj7c0s"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_nqeq3"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_i68yw"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://b47mfu8whqyu6" path="res://Assets/CP_V1.1.0_nyknck/CP_V1.0.4_nyknck/CP_V1.0.4.png" id="4_0esng"]
 [ext_resource type="Texture2D" uid="uid://6jb4x5f6sixb" path="res://Assets/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="5_yhq1y"]
 [ext_resource type="Texture2D" uid="uid://cpf2uf7yd06ae" path="res://Assets/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="6_x8erm"]
-[ext_resource type="PackedScene" uid="uid://bph8w2xfb5m41" path="res://Scenes/player.tscn" id="7_q4a64"]
 [ext_resource type="Texture2D" uid="uid://ba3p0yxr3bk6t" path="res://Assets/free-office-pixel-art/Julia-Idle.png" id="7_v143s"]
 [ext_resource type="Script" uid="uid://ceq6n5i075abh" path="res://Scripts/reception.gd" id="8_jtk4h"]
 [ext_resource type="Resource" uid="uid://c46jk1su3sow2" path="res://Dialogues/Reception.dialogue" id="9_fv7nf"]
 [ext_resource type="Script" uid="uid://bi2qkrgw5tcjl" path="res://Scripts/reception_kill.gd" id="10_tv2pp"]
+[ext_resource type="Script" uid="uid://c340uudml86m6" path="res://Scripts/player.gd" id="11_woflx"]
 [ext_resource type="Script" uid="uid://dolsldwbhyfis" path="res://Scripts/elevator.gd" id="11_xbvg7"]
 [ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="12_depx2"]
+[ext_resource type="Texture2D" uid="uid://bv8komkml06e8" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaYellow/SpriteSheet.png" id="12_uq5n3"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="14_v143s"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="15_depx2"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="15_jtk4h"]
@@ -3935,11 +3936,53 @@ size = Vector2(61, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_depx2"]
 size = Vector2(50, 19)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("12_uq5n3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("12_uq5n3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("12_uq5n3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("12_uq5n3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
+size = Vector2(10, 11)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv7nf"]
 size = Vector2(74, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbvg7"]
 size = Vector2(21, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woflx"]
+size = Vector2(28, 35)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woflx"]
 bg_color = Color(0, 0, 0, 1)
@@ -4132,9 +4175,26 @@ script = ExtResource("10_tv2pp")
 position = Vector2(58, -294.5)
 shape = SubResource("RectangleShape2D_depx2")
 
-[node name="Player" parent="." instance=ExtResource("7_q4a64")]
+[node name="Player" type="Node2D" parent="."]
 z_index = 3
 position = Vector2(56, -192)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
+script = ExtResource("11_woflx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"walk"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1jxqw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(56, -232)
+zoom = Vector2(5.65, 3.6)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(54, -277)
@@ -4149,6 +4209,13 @@ script = ExtResource("11_xbvg7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator"]
 position = Vector2(-15.5, -291)
 shape = SubResource("RectangleShape2D_xbvg7")
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(56, -153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_woflx")
 
 [node name="ElevatorPopup" type="Label" parent="."]
 offset_left = -37.0
@@ -4169,6 +4236,19 @@ offset_top = -316.0
 offset_right = 179.49998
 offset_bottom = -279.0
 scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("12_depx2")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_woflx")
+text = "E - Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoorPopup" type="Label" parent="."]
+offset_left = 39.0
+offset_top = -179.0
+offset_right = 181.49998
+offset_bottom = -142.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("12_depx2")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_woflx")
@@ -4641,6 +4721,8 @@ bus = &"SFX"
 [connection signal="body_exited" from="ReceptionKill" to="ReceptionKill" method="_on_body_exited"]
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
+[connection signal="body_entered" from="Door" to="Reception" method="_on_door_body_entered"]
+[connection signal="body_exited" from="Door" to="Reception" method="_on_door_body_exited"]
 [connection signal="pressed" from="Pause/Buttons/Resume" to="Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Options" to="Pause" method="_on_options_pressed"]
 [connection signal="pressed" from="Pause/Buttons/Menu" to="Pause" method="_on_menu_pressed"]

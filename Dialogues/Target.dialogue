@@ -14,7 +14,7 @@ Target: Long time no see.
 	
 - Hide Brother From The Boss
 	Target: What... You want me to hide...?
-	Target: Sure I guess...
+	Target: Sure I guess, i'll stay here for a while...
 	set State.finished_bro_dialogue = false
 	set State.saveBro = true
 	set State.in_dialogue = false

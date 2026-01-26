@@ -1,0 +1,6 @@
+~ start
+set State.in_dialogue = true
+
+Boss: Well done, Here's your reward...
+
+=> END

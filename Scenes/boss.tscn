@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://s83wauuhcrmv"]
+
+[ext_resource type="Texture2D" uid="uid://brynqofoxblon" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaMageBlack/SeparateAnim/Idle.png" id="1_0154r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwfse"]
+atlas = ExtResource("1_0154r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxrok"]
+atlas = ExtResource("1_0154r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukjjc"]
+atlas = ExtResource("1_0154r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n725y"]
+atlas = ExtResource("1_0154r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh6p8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwfse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxrok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n725y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mh6p8")
+frame_progress = 0.580779
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

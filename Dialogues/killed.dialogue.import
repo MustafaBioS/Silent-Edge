@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cptt1bnp2qp3h"
+path="res://.godot/imported/killed.dialogue-1c1b1f0f91eaf7fcd9c68ca7384b2bb5.tres"
+
+[deps]
+
+source_file="res://Dialogues/killed.dialogue"
+dest_files=["res://.godot/imported/killed.dialogue-1c1b1f0f91eaf7fcd9c68ca7384b2bb5.tres"]
+
+[params]
+
+defaults=true
