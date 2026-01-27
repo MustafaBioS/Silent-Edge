@@ -41,6 +41,19 @@ func _ready() -> void:
 	popup.visible = false
 	door_popup.visible = false
 
+func save_action():
+		if State.finished_kill_dial == false:
+			started = true
+			var balloon: Node = phone_balloon.instantiate()
+			get_tree().current_scene.add_child(balloon)
+			balloon.start(KILLED, "start")
+			
+			State.objective = "Pick Up The Money"
+			await get_tree().create_timer(2.0).timeout
+			anim.play("fade_out")
+			await anim.animation_finished
+			get_tree().change_scene_to_file("res://Scenes/house.tscn")
+
 func cutscene():
 	var destination = Vector2(-57.0, -14.5)
 	var move_vector = destination - target.global_position
@@ -51,6 +64,9 @@ func cutscene():
 	tween.tween_callback(func():
 		asprite.stop()
 		target.visible = false
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://Scenes/house.tscn")
+		State.broSaved = true
 	)
 
 func walk_dir(move_vector: Vector2):
@@ -120,7 +136,7 @@ func _process(delta: float) -> void:
 		State.broSaved = true
 		popup.visible = false
 		
-	if door_entered and Input.is_action_just_pressed("interact") and State.broKilled || State.broSaved:
+	if door_entered and Input.is_action_just_pressed("interact") and (State.broKilled || State.broSaved):
 		get_tree().change_scene_to_file("res://Scenes/incompany.tscn")
 	
 func action() -> void:

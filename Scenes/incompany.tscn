@@ -4356,7 +4356,6 @@ text = "This Action Will Have Consequenes..."
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 script = ExtResource("14_v143s")
 
 [node name="Overlay" type="Panel" parent="Pause"]
@@ -4702,7 +4701,6 @@ text = "Fullscreen"
 script = ExtResource("15_xbvg7")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("16_jtk4h")
 
 [node name="Background" type="ColorRect" parent="Inventory"]
@@ -4753,7 +4751,6 @@ vertical_alignment = 1
 
 [node name="Animation" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="Black" type="ColorRect" parent="Animation"]
 anchors_preset = 15
@@ -4771,7 +4768,6 @@ libraries = {
 
 [node name="LoseAnim" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="Black" type="ColorRect" parent="LoseAnim"]
 z_index = 10

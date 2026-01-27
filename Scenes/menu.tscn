@@ -278,12 +278,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -205.75
+offset_left = -190.0
 offset_top = 125.0
-offset_right = 205.75
+offset_right = 190.0
 offset_bottom = 173.0
 grow_horizontal = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 20
 
 [node name="AudioBtn" type="Button" parent="Options/HBoxContainer"]
 layout_mode = 2
@@ -318,24 +318,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
 text = "Screen"
-
-[node name="Keybinds" type="Button" parent="Options/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-theme_override_fonts/font = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jsrd8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wbdvm")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1by5w")
-text = "Keybinds
-"
 
 [node name="Back" type="Button" parent="Options"]
 layout_mode = 0
@@ -508,15 +490,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kmwmt")
 text = "Fullscreen"
 script = ExtResource("5_wbdvm")
 
-[node name="Keybinds" type="Control" parent="Options"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
 [node name="Black" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -546,7 +519,6 @@ bus = &"SFX"
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/AudioBtn" to="." method="_on_audio_btn_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/ScreenBtn" to="." method="_on_screen_btn_pressed"]
-[connection signal="pressed" from="Options/HBoxContainer/Keybinds" to="." method="_on_keybinds_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/Audio/MasterSlider" to="Options/Audio/MasterSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Options/Audio/MusicSlider" to="Options/Audio/MusicSlider" method="_on_value_changed"]

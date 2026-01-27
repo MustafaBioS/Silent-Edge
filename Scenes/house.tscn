@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://c0nfgwugvnneg"]
+[gd_scene load_steps=84 format=3 uid="uid://c0nfgwugvnneg"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_xi0mm"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_bu6dc"]
@@ -20,12 +20,13 @@
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="16_36e0i"]
 [ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="16_a7v5j"]
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="16_tj63m"]
+[ext_resource type="Texture2D" uid="uid://brynqofoxblon" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaMageBlack/SeparateAnim/Idle.png" id="17_qabsv"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="18_36e0i"]
 [ext_resource type="AudioStream" uid="uid://btr8yxe17547w" path="res://Music/BackSFX.mp3" id="19_78jbw"]
 [ext_resource type="AudioStream" uid="uid://555mibd0iqx7" path="res://Music/objSFX.mp3" id="20_rss08"]
 [ext_resource type="Texture2D" uid="uid://3xfebcsdsfic" path="res://Assets/Self Made/duffel.png" id="22_cx658"]
 [ext_resource type="Texture2D" uid="uid://cmdyg5hf44dx" path="res://Assets/Self Made/money.png" id="23_g3br3"]
-[ext_resource type="PackedScene" uid="uid://s83wauuhcrmv" path="res://Scenes/boss.tscn" id="24_g3br3"]
+[ext_resource type="AudioStream" uid="uid://buhvu4xc2uhw" path="res://Music/Cash.mp3" id="27_qabsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmwq5"]
 texture = ExtResource("1_xi0mm")
@@ -3753,6 +3754,45 @@ size = Vector2(10, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmwq5"]
 size = Vector2(104, 53)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwfse"]
+atlas = ExtResource("17_qabsv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxrok"]
+atlas = ExtResource("17_qabsv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukjjc"]
+atlas = ExtResource("17_qabsv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n725y"]
+atlas = ExtResource("17_qabsv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mh6p8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwfse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxrok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n725y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0154r"]
+size = Vector2(10, 10)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lv2cm"]
 size = Vector2(19, 14)
 
@@ -3897,11 +3937,28 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qabsv"]
+resource_name = "fade_out_text"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3rjx"]
 _data = {
 &"RESET": SubResource("Animation_wbdvm"),
 &"fade_in": SubResource("Animation_jsrd8"),
-&"fade_out": SubResource("Animation_q3rjx")
+&"fade_out": SubResource("Animation_q3rjx"),
+&"fade_out_text": SubResource("Animation_qabsv")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv2cm"]
@@ -4017,49 +4074,59 @@ texture = ExtResource("14_lv2cm")
 [node name="SecondVisit" type="Node2D" parent="."]
 position = Vector2(0, 5)
 
-[node name="Duffel" type="Sprite2D" parent="SecondVisit"]
+[node name="Bag" type="Node2D" parent="SecondVisit"]
+
+[node name="Duffel" type="Sprite2D" parent="SecondVisit/Bag"]
 z_index = 1
 position = Vector2(16, -1.218029)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("22_cx658")
 
-[node name="Money" type="Sprite2D" parent="SecondVisit"]
+[node name="Money" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(19, 5.781969)
 scale = Vector2(0.20000002, 0.20000002)
 texture = ExtResource("23_g3br3")
 
-[node name="Money2" type="Sprite2D" parent="SecondVisit"]
+[node name="Money2" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(20, 1.781971)
 rotation = -0.24946873
 scale = Vector2(0.20000003, 0.20000003)
 texture = ExtResource("23_g3br3")
 
-[node name="Money3" type="Sprite2D" parent="SecondVisit"]
+[node name="Money3" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(18.000002, -3.218031)
 rotation = -0.24946873
 scale = Vector2(0.20000003, 0.20000003)
 texture = ExtResource("23_g3br3")
 
-[node name="Money4" type="Sprite2D" parent="SecondVisit"]
+[node name="Money4" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(19.000002, 0.781971)
 rotation = -0.24946873
 scale = Vector2(0.20000003, 0.20000003)
 texture = ExtResource("23_g3br3")
 
-[node name="Money5" type="Sprite2D" parent="SecondVisit"]
+[node name="Money5" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(12, 4.781971)
 rotation = -0.24946873
 scale = Vector2(0.20000003, 0.20000003)
 texture = ExtResource("23_g3br3")
 
-[node name="Money6" type="Sprite2D" parent="SecondVisit"]
+[node name="Money6" type="Sprite2D" parent="SecondVisit/Bag"]
 position = Vector2(12.000002, 1.781971)
 rotation = -0.24946873
 scale = Vector2(0.20000003, 0.20000003)
 texture = ExtResource("23_g3br3")
 
-[node name="Boss" parent="SecondVisit" instance=ExtResource("24_g3br3")]
+[node name="Boss" type="CharacterBody2D" parent="SecondVisit"]
 position = Vector2(16, -25)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SecondVisit/Boss"]
+sprite_frames = SubResource("SpriteFrames_mh6p8")
+frame_progress = 0.580779
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondVisit/Boss"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0154r")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SecondVisit"]
 
@@ -4115,7 +4182,6 @@ vertical_alignment = 1
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 script = ExtResource("14_j14gn")
 
 [node name="Overlay" type="Panel" parent="Pause"]
@@ -4461,7 +4527,6 @@ text = "Fullscreen"
 script = ExtResource("16_a7v5j")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("16_tj63m")
 
 [node name="Background" type="ColorRect" parent="Inventory"]
@@ -4512,7 +4577,6 @@ vertical_alignment = 1
 
 [node name="Animation" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="Black" type="ColorRect" parent="Animation"]
 anchors_preset = 15
@@ -4528,8 +4592,91 @@ libraries = {
 &"": SubResource("AnimationLibrary_q3rjx")
 }
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="AnimationOut" type="CanvasLayer" parent="."]
+layer = 3
 visible = false
+
+[node name="Black" type="ColorRect" parent="AnimationOut"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="AnimationOut/Black"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -447.0
+offset_top = -150.0
+offset_right = 447.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_78jbw")
+theme_override_font_sizes/font_size = 25
+text = "Ending 1/2
+
+
+
+
+You Took The Money And Then You Never Went On Another Mission Again..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationOut"]
+libraries = {
+&"": SubResource("AnimationLibrary_q3rjx")
+}
+
+[node name="AnimationOut2" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Black" type="ColorRect" parent="AnimationOut2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="AnimationOut2/Black"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.5
+offset_top = -192.0
+offset_right = 291.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_78jbw")
+theme_override_font_sizes/font_size = 25
+text = "Ending 2/2
+
+
+
+The Boss Found Out You Hid Your Brother 
+And As You Were Walking With The Money Bag,
+A Bomb Detonated Blowing You Up Into Peices..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationOut2"]
+libraries = {
+&"": SubResource("AnimationLibrary_q3rjx")
+}
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Objective" type="Label" parent="HUD"]
 modulate = Color(1, 1, 1, 0)
@@ -4564,6 +4711,10 @@ bus = &"SFX"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_78jbw")
+bus = &"SFX"
+
+[node name="CashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_qabsv")
 bus = &"SFX"
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
