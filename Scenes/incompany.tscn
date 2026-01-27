@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://b4173ranj7c0s"]
+[gd_scene load_steps=79 format=3 uid="uid://b4173ranj7c0s"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_nqeq3"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_i68yw"]
@@ -3992,6 +3992,9 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq5n3"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_hgpy0"]
 resource_name = "Objective"
 length = 1.2
@@ -4246,8 +4249,7 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
-position = Vector2(0, -40)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(5, 5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(54, -277)
@@ -4318,14 +4320,15 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -287.0
-offset_top = 44.0
-offset_right = -61.0
-offset_bottom = 76.0
+offset_left = -334.0
+offset_top = 32.0
+offset_right = -14.0
+offset_bottom = 88.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)
 theme_override_fonts/font = ExtResource("12_depx2")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq5n3")
 text = "Objective:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -4335,8 +4338,25 @@ libraries = {
 &"": SubResource("AnimationLibrary_0pcbe")
 }
 
+[node name="Consequences" type="Label" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -359.0
+offset_top = -50.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("12_depx2")
+theme_override_font_sizes/font_size = 20
+text = "This Action Will Have Consequenes..."
+
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("14_v143s")
 
 [node name="Overlay" type="Panel" parent="Pause"]
@@ -4682,6 +4702,7 @@ text = "Fullscreen"
 script = ExtResource("15_xbvg7")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("16_jtk4h")
 
 [node name="Background" type="ColorRect" parent="Inventory"]
@@ -4732,6 +4753,7 @@ vertical_alignment = 1
 
 [node name="Animation" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="Black" type="ColorRect" parent="Animation"]
 anchors_preset = 15
@@ -4749,6 +4771,7 @@ libraries = {
 
 [node name="LoseAnim" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="Black" type="ColorRect" parent="LoseAnim"]
 z_index = 10

@@ -8,6 +8,26 @@ const Balloon = preload("uid://cecfjcr47dwns")
 
 @onready var anim = $"../LoseAnim/AnimationPlayer"
 @onready var lose_anim = $"../LoseAnim"
+var playing = false
+@onready var consequences = $"../HUD/Consequences"
+
+func consequence():
+	if playing:
+		return
+		
+	playing = true
+	
+	consequences.text = "This Action Will Have Consequences."
+	await get_tree().create_timer(0.3).timeout
+	
+	consequences.text = "This Action Will Have Consequences.."
+	await get_tree().create_timer(0.3).timeout
+	
+	consequences.text = "This Action Will Have Consequences..."
+	await get_tree().create_timer(0.3).timeout
+	
+	playing = false
+
 
 var entered = false
 var entered_door = false
@@ -18,6 +38,18 @@ func _ready() -> void:
 	lose_anim.visible = false
 
 func _process(delta: float) -> void:
+	
+	print(State.show_consequences)
+	
+	if State.show_consequences == false:
+		consequences.visible = false
+	
+	if State.show_consequences and not playing:
+		consequences.visible = true
+		consequence()
+		await get_tree().create_timer(2.5).timeout
+		State.show_consequences = false
+	
 	if State.lost and not restarting:
 		restarting = true
 		_start_lose_sequence()

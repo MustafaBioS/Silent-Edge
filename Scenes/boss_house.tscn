@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://1ht8fktug4rq"]
+[gd_scene load_steps=58 format=3 uid="uid://1ht8fktug4rq"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_fd0ox"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_m76c8"]
@@ -3239,6 +3239,9 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x873"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_hgpy0"]
 resource_name = "Objective"
 length = 1.2
@@ -3509,14 +3512,15 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -287.0
+offset_left = -349.0
 offset_top = 44.0
-offset_right = -61.0
+offset_right = -36.0
 offset_bottom = 76.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)
 theme_override_fonts/font = ExtResource("9_awat7")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_1x873")
 text = "Objective:"
 horizontal_alignment = 1
 vertical_alignment = 1

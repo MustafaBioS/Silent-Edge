@@ -1,29 +1,34 @@
 ~ start
 set State.in_dialogue = true
 
-Receptionist: Hello, How may i help you?
+Receptionist: Hello, how may I help you?
+
 - I have an appointment with Mr. Floyd.
-	Receptionist: Your name Sir?
+	Receptionist: Your name, sir?
+
 	- Milton
-		Receptionist: Appointment for Mr. Milton, Take the elevator to the 6(7)th floor Sir.
+		Receptionist: Appointment for Mr. Milton. Take the elevator to the (6)7th floor, sir.
 		set State.finished_rec_dialogue = true
 		set State.in_dialogue = false
 		set State.elevator_route = true
 		set State.objective = "Go To The Target's Office"
+		set State.show_consequences = true
+		=> END
+
 	- Err... Sam
-		Receptionist: I don't see any appointments with the name Sam, Please make an appointment then come back.
+		Receptionist: I don't see any appointments with the name Sam. Please make an appointment and come back.
 		set State.finished_rec_dialogue = true
 		set State.killRec = true
 		set State.in_dialogue = false
 		set State.objective = "Kill The Receptionist"
-	=> END
-- Pest Control, Mr. Floyd's Office.
-	Receptionist: Hold on Sir...
-	Receptionist: Mr. Floyd didn't order pest control, I have alerted the police.
-	set State.lost = true
-	set State.in_dialogue = false
-	=> END
+		set State.show_consequences = true
+		=> END
 
-set State.finished_rec_dialogue = true
-set State.in_dialogue = false
-=> END
+- Pest Control, Mr. Floyd's Office.
+	Receptionist: Hold on, sir...
+	Receptionist: Mr. Floyd didn't order pest control. I have alerted the police.
+	set State.lost = true
+	set State.finished_rec_dialogue = true
+	set State.in_dialogue = false
+	set State.show_consequences = true
+	=> END

@@ -27,4 +27,5 @@ var finished_kill_dial = false
 var finished_save_dial = false
 var finished_sec_visit_dial = false
 var finished_boss_dial = false
+var show_consequences = false
 var objective = ""

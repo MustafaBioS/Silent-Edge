@@ -2729,7 +2729,6 @@ vertical_alignment = 1
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 script = ExtResource("9_0fj1v")
 
 [node name="Overlay" type="Panel" parent="Pause"]
@@ -3075,7 +3074,6 @@ text = "Fullscreen"
 script = ExtResource("11_e0ngr")
 
 [node name="Inventory" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("11_ikia7")
 
 [node name="Background" type="ColorRect" parent="Inventory"]
@@ -3126,7 +3124,6 @@ vertical_alignment = 1
 
 [node name="Animation" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="Black" type="ColorRect" parent="Animation"]
 anchors_preset = 15
@@ -3149,9 +3146,9 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -278.0
+offset_left = -291.0
 offset_top = 35.0
-offset_right = -61.0
+offset_right = -48.0
 offset_bottom = 76.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)

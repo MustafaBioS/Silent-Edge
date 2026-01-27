@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://byiggiof5xm36"]
+[gd_scene load_steps=101 format=3 uid="uid://byiggiof5xm36"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_7xo7e"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_eqlnk"]
@@ -4186,6 +4186,9 @@ size = Vector2(38, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqaoe"]
 size = Vector2(50, 37)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uc8b"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_hgpy0"]
 resource_name = "Objective"
 length = 1.2
@@ -4425,8 +4428,7 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_1jxqw")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
-position = Vector2(-1, 1)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(5, 5)
 
 [node name="BroPopup" type="Label" parent="."]
 offset_left = 52.0
@@ -4482,14 +4484,15 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -287.0
+offset_left = -334.0
 offset_top = 44.0
-offset_right = -61.0
+offset_right = -14.0
 offset_bottom = 76.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)
 theme_override_fonts/font = ExtResource("10_uc7l7")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2uc8b")
 text = "Objective:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -4498,6 +4501,22 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_0pcbe")
 }
+
+[node name="Consequences" type="Label" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -359.0
+offset_top = -50.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_uc7l7")
+theme_override_font_sizes/font_size = 20
+text = "This Action Will Have Consequenes..."
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2

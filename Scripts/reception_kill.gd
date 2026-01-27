@@ -7,8 +7,9 @@ var pop = false
 
 func _process(delta: float) -> void:
 	
-	if State.killRec == true:
+	if State.killRec == true and State.recKilled == false:
 		popup.text = "E - Kill The Receptionist"
+
 
 	if entered and Input.is_action_just_pressed("interact") and State.killRec == true and pop == false:
 		killSFX.play()

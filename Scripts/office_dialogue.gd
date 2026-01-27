@@ -14,10 +14,28 @@ var started = false
 const KILLED = preload("uid://cptt1bnp2qp3h")
 var door_entered = false
 @onready var anim = $"../Animation/AnimationPlayer"
-
+@onready var consequences = $"../HUD/Consequences"
 var kill = false
-
 var save = false
+var playing = false
+
+
+func consequence():
+	if playing:
+		return
+		
+	playing = true
+	
+	consequences.text = "This Action Will Have Consequences."
+	await get_tree().create_timer(0.3).timeout
+	
+	consequences.text = "This Action Will Have Consequences.."
+	await get_tree().create_timer(0.3).timeout
+	
+	consequences.text = "This Action Will Have Consequences..."
+	await get_tree().create_timer(0.3).timeout
+	
+	playing = false
 
 func _ready() -> void:
 	popup.visible = false
@@ -53,6 +71,18 @@ func walk_dir(move_vector: Vector2):
 	asprite.play()
 
 func _process(delta: float) -> void:
+
+	print(State.show_consequences)
+	
+	if State.show_consequences == false:
+		consequences.visible = false
+	
+	if State.show_consequences and not playing:
+		consequences.visible = true
+		consequence()
+		await get_tree().create_timer(2.5).timeout
+		State.show_consequences = false
+	
 	if entered and !started:
 		action()
 		
@@ -67,7 +97,8 @@ func _process(delta: float) -> void:
 		
 	if kill and Input.is_action_just_pressed("interact"):
 		killSFX.play()
-		target.queue_free()
+		if target:
+			target.queue_free()
 		State.broKilled = true
 		popup.visible = false
 		
@@ -78,7 +109,7 @@ func _process(delta: float) -> void:
 			get_tree().current_scene.add_child(balloon)
 			balloon.start(KILLED, "start")
 			
-			State.objective = "Go To The Boss's Warehouse"
+			State.objective = "Pick Up The Money"
 			await get_tree().create_timer(2.0).timeout
 			anim.play("fade_out")
 			await anim.animation_finished

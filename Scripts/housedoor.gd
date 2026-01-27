@@ -11,19 +11,28 @@ func _ready() -> void:
 	popup.visible = false
 
 func boss_action() -> void:
-	if State.broKilled:
+	if State.broKilled and !State.finished_boss_dial:
 		var balloon: Node = BOSS_BALLOON.instantiate()
 		get_tree().current_scene.add_child(balloon)
-		BOSS_BALLOON.start(BOSS, "start")
+		balloon.start(BOSS, "start")
+		
 
 func _process(delta: float) -> void:
-	if State.broKilled == false || State.broSaved == false:
+	if State.broKilled == false && State.broSaved == false:
 		second_visit.visible = false
+	else:
+		second_visit.visible = true
+	
+	if State.broKilled == true|| State.broSaved == true:
+		popup.text = "Locked"
 	
 	if entered and Input.is_action_just_pressed("interact") and State.in_dialogue == false:
+		if State.broKilled == true|| State.broSaved == true:
+			return
+		
 		if State.finished_boss_dial == false:
 			State.objective = "Get In The Car"
-		get_tree().change_scene_to_file("res://Scenes/boss_house.tscn")
+			get_tree().change_scene_to_file("res://Scenes/boss_house.tscn")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
@@ -37,3 +46,13 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		popup.visible = false
 		entered = false
+
+
+
+func _on_bag_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		pass
+
+func _on_bag_area_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		pass

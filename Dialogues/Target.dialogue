@@ -5,23 +5,21 @@ Target: Bro- Brother...?
 Target: Is that you...?
 Target: Long time no see.
 
-- Assasinate Brother
-	Target: How have you been brother...
-	set State.finished_bro_dialogue = false
+- Assassinate Brother
+	Target: How have you been, brother...
 	set State.killBro = true
+	set State.finished_bro_dialogue = false
 	set State.in_dialogue = false
 	set State.objective = "Kill Your Brother"
+	set State.show_consequences = true
 	=> END
 	
 - Hide Brother From The Boss
-	Target: What... You want me to hide...?
-	Target: Sure I guess, i'll stay here for a while...
-	set State.finished_bro_dialogue = false
+	Target: What... you want me to hide...?
+	Target: Sure, I guess. I'll stay here for a while...
 	set State.saveBro = true
+	set State.finished_bro_dialogue = false
 	set State.in_dialogue = false
 	set State.objective = "Hide Your Brother"
+	set State.show_consequences = true
 	=> END
-	
-set State.in_dialogue = false
-set State.finished_bro_dialogue = false
-=> END
