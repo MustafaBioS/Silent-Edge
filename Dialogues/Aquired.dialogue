@@ -2,6 +2,7 @@
 set State.in_dialogue = true
 Crate: You have found a blade, Press "I" To View Your Inventory.
 
+set State.objective = "Exit The Warehouse"
 set State.finished_aq = true
 set State.item = "Blade"
 set State.in_dialogue = false

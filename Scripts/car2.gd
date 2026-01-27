@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			if State.opened_crate == true:
 				get_tree().change_scene_to_file("res://Scenes/company.tscn")
+				State.objective = "Get In The Company"
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

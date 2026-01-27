@@ -7,6 +7,7 @@ Phone: Boss is calling again...
 	Boss: Good. Three crates ahead, the one in the center holds my blade. You’ll need it for
 	Boss: Don’t look for me. I had business elsewhere. Finish this quietly. Leave no echoes.
 	Boss: Once you get the blade, Get in the car to go to the target's location.
+	set State.objective = "Open The Crates"
 	set State.finished_sec_dialogue = true
 	set State.in_dialogue = false
 	=> END

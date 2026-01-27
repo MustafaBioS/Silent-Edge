@@ -12,7 +12,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if enteredCrate and Input.is_action_just_pressed("interact"):
 		action()
+		State.objective = "Exit The Warehouse"
 		State.opened_crate = true
+		
+	if State.opened_crate == false:
+		State.objective = "Open The Crates"
+	else:
+		pass
 
 func action() -> void:
 	if State.finished_aq == false and enteredCrate == true:

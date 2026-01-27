@@ -79,7 +79,7 @@ inv={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/Start.dialogue", "res://Dialogues/House.dialogue", "res://Dialogues/Aquired.dialogue", "res://Dialogues/CompDial.dialogue", "res://Dialogues/Final.dialogue", "res://Dialogues/untitled.dialogue", "res://Dialogues/mushroom.dialogue", "res://Dialogues/Reception.dialogue", "res://Dialogues/Target.dialogue", "res://Dialogues/killed.dialogue", "res://Dialogues/Boss.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/Start.dialogue", "res://Dialogues/House.dialogue", "res://Dialogues/Aquired.dialogue", "res://Dialogues/CompDial.dialogue", "res://Dialogues/Final.dialogue", "res://Dialogues/mushroom.dialogue", "res://Dialogues/Reception.dialogue", "res://Dialogues/Target.dialogue", "res://Dialogues/killed.dialogue", "res://Dialogues/Boss.dialogue")
 
 [rendering]
 

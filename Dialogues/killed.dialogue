@@ -5,4 +5,5 @@ Boss: You assassinated him?
 Boss: Good job, Come meet me at my warehouse for your reward.
 
 set State.in_dialogue = false
+set State.objective = "Go To The Boss's Warehouse"
 => END

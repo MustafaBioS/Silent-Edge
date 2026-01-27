@@ -21,9 +21,17 @@ func _process(delta: float) -> void:
 	if State.lost and not restarting:
 		restarting = true
 		_start_lose_sequence()
+	
+	if entered_door && Input.is_action_just_pressed("interact") && State.broKilled || State.broSaved:
+		get_tree().change_scene_to_file("res://Scenes/company.tscn")
 
 	if entered and Input.is_action_just_pressed("interact"):
 		action()
+	
+	if State.broKilled || State.broSaved:
+		door_popup.text = "E - Interact"
+	else:
+		door_popup.text = "Locked"
 
 func _start_lose_sequence() -> void:
 	lose_anim.visible = true
@@ -52,7 +60,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_door_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
-		door_popup.visbile = true
+		door_popup.visible = true
 		entered_door = true
 
 func _on_door_body_exited(body: Node2D) -> void:

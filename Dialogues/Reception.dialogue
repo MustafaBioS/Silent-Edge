@@ -9,11 +9,13 @@ Receptionist: Hello, How may i help you?
 		set State.finished_rec_dialogue = true
 		set State.in_dialogue = false
 		set State.elevator_route = true
+		set State.objective = "Go To The Target's Office"
 	- Err... Sam
 		Receptionist: I don't see any appointments with the name Sam, Please make an appointment then come back.
 		set State.finished_rec_dialogue = true
 		set State.killRec = true
 		set State.in_dialogue = false
+		set State.objective = "Kill The Receptionist"
 	=> END
 - Pest Control, Mr. Floyd's Office.
 	Receptionist: Hold on Sir...

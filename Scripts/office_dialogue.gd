@@ -13,6 +13,7 @@ var started = false
 @onready var asprite = $"../Target/AnimatedSprite2D"
 const KILLED = preload("uid://cptt1bnp2qp3h")
 var door_entered = false
+@onready var anim = $"../Animation/AnimationPlayer"
 
 var kill = false
 
@@ -62,21 +63,27 @@ func _process(delta: float) -> void:
 		popup.text = "E - Hide Brother"
 	
 	if !State.broKilled || !State.broSaved:
-		popup.text = "Locked"
-	
+		door_popup.text = "Locked"
+		
 	if kill and Input.is_action_just_pressed("interact"):
 		killSFX.play()
-		target.visible = false
+		target.queue_free()
 		State.broKilled = true
 		popup.visible = false
+		
 		
 		if State.finished_kill_dial == false:
 			started = true
 			var balloon: Node = phone_balloon.instantiate()
 			get_tree().current_scene.add_child(balloon)
 			balloon.start(KILLED, "start")
-		
-		
+			
+			State.objective = "Go To The Boss's Warehouse"
+			await get_tree().create_timer(2.0).timeout
+			anim.play("fade_out")
+			await anim.animation_finished
+			get_tree().change_scene_to_file("res://Scenes/house.tscn")
+			
 	if save and Input.is_action_just_pressed("interact"):
 		cutscene()
 		State.broSaved = true

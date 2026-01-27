@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var backsfx = $"../../BackSFX"
 @onready var anim = $"../../Animation/AnimationPlayer"
 @onready var inventory = $"../../Inventory"
+@onready var objective = $"../../HUD/Objective"
+@onready var obj_anim = $"../../HUD/AnimationPlayer"
+var played = false
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -21,6 +24,15 @@ func _ready() -> void:
 	await anim.animation_finished
 
 func _physics_process(delta: float) -> void:
+	
+	if State.objective == "":
+		objective.visible = false
+	else:
+		objective.visible = true
+		if played == false:
+			objective.text = State.objective
+			obj_anim.play("Objective")
+			played = true
 	
 	if Input.is_action_just_pressed("inv") and State.in_dialogue == false:
 		if inv.visible:

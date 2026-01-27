@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://1ht8fktug4rq"]
+[gd_scene load_steps=57 format=3 uid="uid://1ht8fktug4rq"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_fd0ox"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_m76c8"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://bnldvkgq1lbnr" path="res://Fonts/Minecraft.ttf" id="9_awat7"]
 [ext_resource type="Script" uid="uid://b0ox8xujisn14" path="res://Scripts/pause.gd" id="9_kllt0"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="10_exdlw"]
+[ext_resource type="AudioStream" uid="uid://555mibd0iqx7" path="res://Music/objSFX.mp3" id="10_v6y8s"]
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="11_exdlw"]
 [ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="11_pk0eo"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="12_awat7"]
@@ -3238,6 +3239,58 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="Animation" id="Animation_hgpy0"]
+resource_name = "Objective"
+length = 1.2
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ObjSFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_v6y8s")
+}],
+"times": PackedFloat32Array(0.03333333)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Objective:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t2t4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Objective:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pcbe"]
+_data = {
+&"Objective": SubResource("Animation_hgpy0"),
+&"RESET": SubResource("Animation_t2t4p")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdlle"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -3448,6 +3501,30 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kowja")
 text = "E - Interact"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Objective" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -287.0
+offset_top = 44.0
+offset_right = -61.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)
+theme_override_fonts/font = ExtResource("9_awat7")
+theme_override_font_sizes/font_size = 22
+text = "Objective:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+libraries = {
+&"": SubResource("AnimationLibrary_0pcbe")
+}
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
@@ -3867,6 +3944,10 @@ bus = &"SFX"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_awat7")
+bus = &"SFX"
+
+[node name="ObjSFX" type="AudioStreamPlayer" parent="."]
+volume_db = -1.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

@@ -14,6 +14,7 @@ else
 	Boss: Betray me, and I'll send someone to bring you both.
 	set State.finished_dialogue = true
 	set State.in_dialogue = false
+	set State.objective = "Get In The Car"
 	=> END
 - Decline
 	set State.rang = true

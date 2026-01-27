@@ -2,5 +2,8 @@
 set State.in_dialogue = true
 
 Boss: Well done, Here's your reward...
+set State.objective = "Pick Up The Money Bag"
 
+set State.in_dialogue = false
+set State.finished_boss_dial = true
 => END

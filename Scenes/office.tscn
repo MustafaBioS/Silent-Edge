@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://byiggiof5xm36"]
+[gd_scene load_steps=100 format=3 uid="uid://byiggiof5xm36"]
 
 [ext_resource type="Texture2D" uid="uid://de35xlh6rcgk1" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_7xo7e"]
 [ext_resource type="Texture2D" uid="uid://hjgi82cbamca" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="2_eqlnk"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://blrsjuwct7ddh" path="res://Dialogues/Target.dialogue" id="11_ari0y"]
 [ext_resource type="FontFile" uid="uid://dc4ehbocq1s2o" path="res://Fonts/Symtext.ttf" id="11_lsk72"]
 [ext_resource type="Script" uid="uid://bgqsxc653egsy" path="res://Scripts/audio.gd" id="12_ari0y"]
+[ext_resource type="AudioStream" uid="uid://555mibd0iqx7" path="res://Music/objSFX.mp3" id="13_oqaoe"]
 [ext_resource type="Script" uid="uid://bh8km1ijea6gh" path="res://Scripts/fullscreen.gd" id="13_uc7l7"]
 [ext_resource type="Script" uid="uid://mjiv22s5b080" path="res://Scripts/inventory.gd" id="14_oqaoe"]
 [ext_resource type="AudioStream" uid="uid://be6lljhnrfqyf" path="res://Music/ClickSFX.mp3" id="15_2uc8b"]
@@ -4185,6 +4186,58 @@ size = Vector2(38, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqaoe"]
 size = Vector2(50, 37)
 
+[sub_resource type="Animation" id="Animation_hgpy0"]
+resource_name = "Objective"
+length = 1.2
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ObjSFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_oqaoe")
+}],
+"times": PackedFloat32Array(0.03333333)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Objective:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t2t4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Objective:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pcbe"]
+_data = {
+&"Objective": SubResource("Animation_hgpy0"),
+&"RESET": SubResource("Animation_t2t4p")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjyg3"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -4348,7 +4401,7 @@ position = Vector2(16, 18)
 position = Vector2(57, -274)
 sprite_frames = SubResource("SpriteFrames_4luf0")
 autoplay = "default"
-frame_progress = 0.7448669
+frame_progress = 0.9788188
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
 position = Vector2(57.5, -269.5)
@@ -4371,9 +4424,9 @@ frame = 1
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_1jxqw")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(72, -206)
-zoom = Vector2(4.85, 3.45)
+[node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
+position = Vector2(-1, 1)
+zoom = Vector2(3.5, 3.5)
 
 [node name="BroPopup" type="Label" parent="."]
 offset_left = 52.0
@@ -4421,6 +4474,30 @@ position = Vector2(0, 93)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorPopupArea"]
 position = Vector2(73, -251.5)
 shape = SubResource("RectangleShape2D_oqaoe")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Objective" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -287.0
+offset_top = 44.0
+offset_right = -61.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.95686275, 0.9529412, 0, 1)
+theme_override_fonts/font = ExtResource("10_uc7l7")
+theme_override_font_sizes/font_size = 22
+text = "Objective:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD"]
+libraries = {
+&"": SubResource("AnimationLibrary_0pcbe")
+}
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 2
@@ -4844,6 +4921,10 @@ bus = &"SFX"
 
 [node name="KillSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_8yipd")
+bus = &"SFX"
+
+[node name="ObjSFX" type="AudioStreamPlayer" parent="."]
+volume_db = -1.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="OfficeDialogue" to="OfficeDialogue" method="_on_body_entered"]

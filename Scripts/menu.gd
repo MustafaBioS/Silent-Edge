@@ -7,6 +7,7 @@ extends Control
 @onready var audio = $Options/Audio
 @onready var screen = $Options/Screen
 @onready var anim = $AnimationPlayer
+@onready var keybinds = $Options/Keybinds
 
 func _process(delta: float) -> void:
 	if State.played == true and play.text != "Play Again":
@@ -41,8 +42,16 @@ func _on_audio_btn_pressed() -> void:
 	clicksfx.play()
 	audio.visible = true
 	screen.visible = false
-
+	keybinds.visible = false
+	
 func _on_screen_btn_pressed() -> void:
 	clicksfx.play()
 	screen.visible = true
+	audio.visible = false
+	keybinds.visible = false
+
+func _on_keybinds_pressed() -> void:
+	clicksfx.play()
+	keybinds.visible = true
+	screen.visible = false
 	audio.visible = false
